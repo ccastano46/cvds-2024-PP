@@ -1,214 +1,72 @@
 <!DOCTYPE HTML>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopGear</title>
-    <!-- Agregar referencia a la biblioteca jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-    <!-- Agregar referencia a la biblioteca jsPDF AutoTable -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
-    <style>
-        body {
-            background-color: black; /* Fondo negro para la página */
-            color: white; /* Texto blanco para la página */
-            display: flex;
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin: 20px;
-            width: 100%; /* Ancho del contenedor principal */
-        }
-        .tables-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        .table-container {
-            flex: 1; /* Distribuir el espacio disponible de manera equitativa */
-            margin-right: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #ffcc00; /* Fondo amarillo para nombres de columnas */
-            color: black; /* Texto negro para nombres de columnas */
-        }
-        tr:nth-child(even) {
-            background-color: #333333; /* Fondo gris oscuro para filas pares */
-            color: white; /* Texto blanco para filas pares */
-        }
-        tr:nth-child(odd) {
-            background-color: #222222; /* Fondo gris oscuro para filas impares */
-            color: white; /* Texto blanco para filas impares */
-        }
-        .price {
-            text-decoration: line-through; /* Tachado para el precio anterior */
-            color: white; /* Color blanco para el tachado */
-        }
-        .price-new {
-            color: red; /* Color rojo para el nuevo precio */
-        }
-        .container {
-            width: 100%;
-            display: flex;
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
-        }
-        form {
-            width: 100%;
-        }
-        input[type="text"] {
-            width: calc(100% - 16px);
-        }
-        button {
-            margin-top: 10px;
-            background-color: black; /* Fondo negro para los botones */
-            color: white; /* Texto blanco para los botones */
-            border: none; /* Sin borde */
-            padding: 10px 15px; /* Espaciado interno */
-            cursor: pointer; /* Cambiar cursor al pasar por encima */
-            width: 75px; /* Ancho fijo para todos los botones */
-        }
-        .whatsapp-button,
-        .print-button,
-        .calendar-button {
-            background-color:#222222; /* Fondo gris oscuro para los botones */
-            color: white; /* Texto blanco para los botones */
-            border: none; /* Sin borde */
-            padding: 10px 15px; /* Espaciado interno */
-            cursor: pointer; /* Cambiar cursor al pasar por encima */
-            width: 75px; /* Ancho fijo para todos los botones */
-        }
-        .whatsapp-button img,
-        .print-button img,
-        .calendar-button img {
-            width: 100%; /* Ajustar imagen al tamaño del botón */
-        }
-    </style>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<th:block th:replace="fragments/general.html::headerfiles('Example Page')"></th:block>
 <body>
+<header th:replace="fragments/general::header"/>
+<script>
+    function addDataToTable(dataConfiguration) {
+        let dataHtml = `<tr>
+                <th>Nombre Configuración</th>
+                <th>Valor Configuración</th>
+            </tr>`;
+        dataHtml += dataConfiguration.map((configuration) => {
+            return `<tr>
+                        <td>${configuration.propiedad}</td>
+                        <td>${configuration.valor}</td>
+                    </tr>`
+        }).join("");
+        console.log("dataHtml", dataHtml);
+        const table = document.querySelector("#configurations");
+        table.innerHTML = dataHtml;
+    }
+
+    async function getFromApi() {
+        const response = await fetch('api/configurations');
+        const data = await response.json();
+        console.log("data", data);
+        addDataToTable(data);
+    }
+
+    async function postToApi(event) {
+        event.preventDefault();
+        const propiedad = document.querySelector("#propiedad").value;
+        const valor = document.querySelector("#valor").value;
+        const response = await fetch('api/configurations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({propiedad: propiedad, valor: valor}),
+        });
+        const data = await response.json();
+        console.log("data", data);
+        addDataToTable(data);
+    }
+</script>
 <main>
-    <h1>Cotiza tu servicio</h1>
-    <div class="tables-container">
-        <!-- Primera tabla -->
-        <div class="table-container">
-            <table id="configurations">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Descripción</th>
-                    <th>Valor</th>
-                    <th>Moneda</th>
-                    <th>Impuesto</th>
-                </tr>
-                <!-- Filas existentes -->
-                <tr>
-                    <td>Neumático 215/45R17</td>
-                    <td><img src="ruta_al_archivo_img.jpg" alt="Neumático"></td>
-                    <td>Descripción breve del producto</td>
-                    <td><span class="price">$50.000</span><br><span class="price-new">$35.000</span></td>
-                    <td>COP</td>
-                    <td>15%</td>
-                </tr>
-                <tr>
-                    <td>Neumático 215/45R17</td>
-                    <td><img src="ruta_al_archivo_img.jpg" alt="Neumático"></td>
-                    <td>Descripción breve del producto</td>
-                    <td><span class="price">$50.000</span><br><span class="price-new">$35.000</span></td>
-                    <td>COP</td>
-                    <td>15%</td>
-                </tr>
-            </table>
-        </div>
-        
-        <!-- Segunda tabla -->
-        <div class="table-container" style="flex: 0.25;"> <!-- Reducir la tabla un 75% -->
-            <table id="resumenCompra">
-                <tr>
-                    <th>Detalle</th>
-                </tr>
-                <tr>
-                    <td>Subtotal 100.000 COP</td>
-                </tr>
-                <tr>
-                    <td>Impuestos 10.500 COP</td>
-                </tr>
-                <tr>
-                    <td>Total 110.500 COP</td>
-                </tr>
-                <!-- Nueva fila para botones -->
-                <tr>
-                    <td>
-                        <div class="container">
-                            <!-- Botón de Whatsapp con imagen -->
-                            <button class="whatsapp-button" onclick="window.open('https://web.whatsapp.com/', '_blank')">
-                                <img src="/static/WA.png" alt="Whatsapp">
-                            </button>                                
-                    
-                            <!-- Otros botones omitidos para simplificar -->
-                            <button class="print-button" onclick="window.print()">
-                                <img src="/static/Print.png" alt="Imprimir">
-                            </button>
-                            <button class="calendar-button" onclick="window.open('https://calendar.google.com/', '_blank')">
-                                <img src="/static/Calendar.png" alt="Agendamiento">
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <br>
+    <div class="container">
+        <button onclick="getFromApi()" type="button" class="btn btn-primary">Mostrar todas las configuraciones desde una API</button>
+        <br><br>
+        <table id="configurations" class="table">
+        </table>
     </div>
-
-    <script>
-        function postToApi() {
-            const nombre = document.getElementById("nombre").value;
-            const imagen = document.getElementById("imagen").value;
-            const descripcion = document.getElementById("descripcion").value;
-            const valor = document.getElementById("valor").value;
-            const moneda = document.getElementById("moneda").value;
-            const impuesto = document.getElementById("impuesto").value;
-
-            const table = document.getElementById("configurations");
-            const newRow = table.insertRow(-1);
-            const cell1 = newRow.insertCell(0);
-            const cell2 = newRow.insertCell(1);
-            const cell3 = newRow.insertCell(2);
-            const cell4 = newRow.insertCell(3);
-            const cell5 = newRow.insertCell(4);
-            const cell6 = newRow.insertCell(5);
-
-            cell1.innerHTML = nombre;
-            cell2.innerHTML = `<img src="${imagen}" alt="${nombre}">`;
-            cell3.innerHTML = descripcion;
-            cell4.innerHTML = `<span class="price">${valor}</span><br><span class="price-new">${valor}</span>`;
-            cell5.innerHTML = moneda;
-            cell6.innerHTML = impuesto;
-        }
-
-        function generarPDF() {
-            // Crear un nuevo documento PDF
-            const doc = new jsPDF();
-            
-            // Agregar contenido al PDF
-            doc.text("Tabla de Configuraciones", 10, 10);
-            doc.autoTable({ html: '#configurations' });
-            doc.text("Resumen de Compra", 10, doc.autoTable.previous.finalY + 10);
-            doc.autoTable({ html: '#resumenCompra', startY: doc.autoTable.previous.finalY + 15 });
-
-            // Guardar el PDF y abrirlo en una nueva ventana
-            doc.save("documento.pdf");
-        }
-    </script>
+    <br><br><br>
+    <div class="container">
+        <h2>Crear una nueva configuración</h2>
+        <form onsubmit="postToApi(event)">
+            <div class="form-group">
+                <label for="propiedad">Propiedad</label>
+                <input type="text" class="form-control" id="propiedad" placeholder="property-name">
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="text" class="form-control" id="valor" placeholder="property-value">
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Guardar Configuración">
+        </form>
+    </div>
 </main>
 </body>
 </html>

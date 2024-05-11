@@ -12,24 +12,21 @@ public class WebConfig implements WebMvcConfigurer {
     private final BasicAuthInterceptor basicAuthInterceptor;
 
     @Autowired
-    // Constructor que inyecta el interceptor BasicAuthInterceptor
     public WebConfig(BasicAuthInterceptor basicAuthInterceptor) {
         this.basicAuthInterceptor = basicAuthInterceptor;
     }
 
     @Override
-    // Método para agregar interceptores al registro
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(basicAuthInterceptor)
-                .addPathPatterns("/login/protected/**")  // Rutas protegidas por el interceptor
-                .excludePathPatterns("/static/**");       // Excluir rutas estáticas
+                .addPathPatterns("/login/protected/**")
+                .excludePathPatterns("/static/**");
     }
 
     @Override
-    // Método para agregar manejadores de recursos estáticos
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/static/**")       // Ruta base para recursos estáticos
-                .addResourceLocations("classpath:/static/");  // Ubicación de los recursos estáticos en el classpath
+                .addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 }

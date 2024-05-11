@@ -22,20 +22,18 @@ public class LoginController {
     private static final String LOGIN_PAGE = "login/login";
 
     @Autowired
-    // Constructor vacío (la anotación @Autowired no es necesaria aquí)
     public LoginController() {
+
     }
 
-    // Manejador para la solicitud GET en /login
     @GetMapping("")
     public String login() {
-        return LOGIN_PAGE; // Retorna la página de inicio de sesión
+        return LOGIN_PAGE;
     }
 
-    // Manejador para la solicitud GET en /login/register
     @GetMapping("register")
     public String register() {
-        return "login/register"; // Retorna la página de registro
+        return "login/register";
     }
 
 }
