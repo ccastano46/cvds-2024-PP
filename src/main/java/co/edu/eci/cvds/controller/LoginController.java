@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.eci.cvds.service.LoginService;
+
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Map;
@@ -19,21 +21,39 @@ import java.util.UUID;
 @RequestMapping(value = "/login")
 public class LoginController {
 
-    private static final String LOGIN_PAGE = "login/login";
+    private final LoginService loginService;
 
     @Autowired
-    public LoginController() {
-
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
     }
 
     @GetMapping("")
-    public String login() {
-        return LOGIN_PAGE;
+    public String showLoginPage() {
+        return "login";
     }
 
-    @GetMapping("register")
-    public String register() {
-        return "login/register";
+    @PostMapping("/authenticate")
+    public String authenticate(@RequestParam("username") String username, @RequestParam("password") String password) {
+        if (loginService.authenticate(username, password)) {
+            return "redirect:/dashboard"; // Redireccionar al dashboard si la autenticación es exitosa
+        } else {
+            return "redirect:/login?error"; // Redireccionar de nuevo a la página de inicio de sesión con un mensaje de error
+        }
+    }
+
+    @GetMapping("/register")
+    public String showRegisterPage() {
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String registerAdminAccount(@RequestParam("username") String username, @RequestParam("password") String password) {
+        if (loginService.createAdminAccount(username, password)) {
+            return "redirect:/login?success"; // Redireccionar a la página de inicio de sesión con un mensaje de éxito
+        } else {
+            return "redirect:/login?error"; // Redireccionar a la página de inicio de sesión con un mensaje de error
+        }
     }
 
 }
