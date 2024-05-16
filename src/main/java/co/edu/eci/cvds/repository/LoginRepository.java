@@ -1,22 +1,12 @@
 package co.edu.eci.cvds.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
+import co.edu.eci.cvds.model.Login;
 
-public class LoginRepository {
-    private final Map<String, String> users = new HashMap<>();
 
-    public boolean authenticate(String username, String password) {
-        // Lógica de autenticación
-        return users.containsKey(username) && users.get(username).equals(password);
-    }
 
-    public boolean createAdminAccount(String username, String password) {
-        // Lógica para crear una cuenta de administrador
-        if (!users.containsKey(username)) {
-            users.put(username, password);
-            return true; 
-        }
-        return false;
-    }
+@Repository
+public interface LoginRepository extends JpaRepository<Login, String> {
+    boolean existsByUsername(String username);
 }
