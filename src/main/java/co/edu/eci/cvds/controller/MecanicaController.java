@@ -59,5 +59,13 @@ public class MecanicaController {
         productoService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
+
+
+    @GetMapping("/producto")
+    public ResponseEntity<Producto> obtenerPorId(@PathVariable Long id) {
+        Optional<Producto> producto = productoService.obtenerPorId(id);
+        return producto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }
 
