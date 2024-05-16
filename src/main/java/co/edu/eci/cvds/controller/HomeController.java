@@ -29,6 +29,19 @@ public class HomeController {
     }
 
 
+    @GetMapping("/agendamiento")
+    public String agendamiento(Model model) {
+        return "Agendamiento";
+    }
+
+    @GetMapping("/cotizacionFinal")
+    public String cotizacion(Model model) {
+        return "/lista/cotizacionFinal";
+    }
+
+
+
+
 
 
 
