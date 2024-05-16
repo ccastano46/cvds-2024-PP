@@ -8,5 +8,5 @@ import co.edu.eci.cvds.model.Login;
 
 @Repository
 public interface LoginRepository extends JpaRepository<Login, String> {
-    boolean existsByUsername(String username);
+    boolean existsByUsername(String username, String password);
 }
