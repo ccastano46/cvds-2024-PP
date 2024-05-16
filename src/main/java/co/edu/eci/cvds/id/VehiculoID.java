@@ -1,4 +1,4 @@
-package co.edu.eci.cvds.ID;
+package co.edu.eci.cvds.id;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,9 +10,4 @@ public class VehiculoID implements Serializable {
     private String marca;
     @Getter @Setter
     private String model;
-
-
-
-
-
 }
