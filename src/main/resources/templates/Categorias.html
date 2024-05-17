@@ -22,6 +22,43 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
     </head>
+    <main>
+        <table id = "TablaProductos">
+            <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>IMAGEN</th>
+                <th>VALOR</th>
+                <th>MONEDA</th>
+                <th>DESCUENTO</th>
+                <th>IMPUESTO</th>
+            </tr>
+            </thead>
+        </table>
+    </main>
+    <script>
+        async function getFromApi() {
+            const response = await fetch('/categorias/productos');
+            const data = await response.json();
+            const tableBody = document.querySelector("tbody");
+            let rows = data.map(producto => {
+                    return `
+                        <tr>
+                            <td>${producto.nombre}</td>
+                            <td>${producto.imagen}</td>
+                            <td>${producto.valor}</td>
+                            <td>${producto.moneda}</td>
+                            <td>${producto.descuento}</td>
+                            <td>${producto.impuesto}</td>
+                        </tr>`;
+            }).join("");
+            tableBody.innerHTML = rows;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            getFromApi();
+        });
+    
+    </script>
 
     <body>
         <!-- Top bar Start -->
@@ -2780,6 +2817,14 @@
                     </div>
                     <div class="col-lg-4 sidebar">
                         <div class="sidebar-widget category">
+                            <div class="sidebar-widget tag">
+                                <h2 class="title">Categorias</h2>
+                                <li><a href="#">Mecanica</a></li>
+                                <li><a href="#">Electronica</a></li>
+                                <li><a href="#">Interior</a></li>
+                                <li><a href="#">Fluidos</a></li>
+                                <li><a href="#">Neumaticos</a></li>
+                            </div> 
                             <h2 class="title">Lista de Productos</h2>
                             <nav class="navbar bg-light">
                                 <ul class="navbar-nav">
@@ -2840,87 +2885,87 @@
                                 </ul>
                             </nav>
                         </div>
-                        
-                        <div class="sidebar-widget widget-slider">
-                            <div class="sidebar-slider normal-slider">
-                                <div class="product-item">
-                                    <div class="product-title">
-                                        <a href="#">Bono Cumple</a>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/promocion1.png" alt="Product Image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                            <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-price">
-                                        <a class="btn" href="https://api.whatsapp.com/send?phone=573153764044&text=Hola%20TopGear%20%F0%9F%9B%9E%F0%9F%92%AF%2C%20quiero%20informaci%C3%B3n%20sobre"><i class="fa fa-question-circle"></i>Pregunta</a>
+                    </div>
+                    <div class="sidebar-widget widget-slider">
+                        <div class="sidebar-slider normal-slider">
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="#">Bono Cumple</a>
+                                    <div class="ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
                                     </div>
                                 </div>
-                                <div class="product-item">
-                                    <div class="product-title">
-                                        <a href="#">Promo Llantas</a>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/promocion2.png" alt="Product Image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                            <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-price">
-                                        <a class="btn" href="https://api.whatsapp.com/send?phone=573153764044&text=Hola%20TopGear%20%F0%9F%9B%9E%F0%9F%92%AF%2C%20quiero%20informaci%C3%B3n%20sobre"><i class="fa fa-question-circle"></i>Pregunta</a>
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="img/promocion1.png" alt="Product Image">
+                                    </a>
+                                    <div class="product-action">
+                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a href="#"><i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
-                                <div class="product-item">
-                                    <div class="product-title">
-                                        <a href="#">Kit todo en uno</a>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/promocion3.png" alt="Product Image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                            <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="product-price">
-                                        <h3><span>$</span>180.000</h3>
-                                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
-                                    </div>
+                                <div class="product-price">
+                                    <a class="btn" href="https://api.whatsapp.com/send?phone=573153764044&text=Hola%20TopGear%20%F0%9F%9B%9E%F0%9F%92%AF%2C%20quiero%20informaci%C3%B3n%20sobre"><i class="fa fa-question-circle"></i>Pregunta</a>
                                 </div>
                             </div>
-                        </div>  
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="#">Promo Llantas</a>
+                                    <div class="ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="img/promocion2.png" alt="Product Image">
+                                    </a>
+                                    <div class="product-action">
+                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a href="#"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-price">
+                                    <a class="btn" href="https://api.whatsapp.com/send?phone=573153764044&text=Hola%20TopGear%20%F0%9F%9B%9E%F0%9F%92%AF%2C%20quiero%20informaci%C3%B3n%20sobre"><i class="fa fa-question-circle"></i>Pregunta</a>
+                                </div>
+                            </div>
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="#">Kit todo en uno</a>
+                                    <div class="ratting">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="img/promocion3.png" alt="Product Image">
+                                    </a>
+                                    <div class="product-action">
+                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                        <a href="#"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-price">
+                                    <h3><span>$</span>180.000</h3>
+                                    <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
                     </div>
                     <!-- Side Bar End -->
                 </div>
