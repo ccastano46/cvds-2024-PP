@@ -15,21 +15,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Set;
 
+
+
 @Controller
 @RequestMapping(value = "/categorias")
 public class ProductController {
 
-    private final ProductService productService;
+    private final Product product;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(CategoriaService categoriaService) {
         this.productService = productService;
     }
 
     @GetMapping("")
-    public String verProductosYServicios(Model model) {
-        model.addAttribute("producto", productService.getAllProducts());
-        return "products-services/ver-productos-y-servicios";
+    public String verProductos(Model model) {
+        model.addAttribute("producto", categoriaService.getAllProducts());
+        return "products-services/ver-productos";
     }
 
     @GetMapping("/productos")
