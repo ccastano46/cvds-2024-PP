@@ -36,6 +36,9 @@ class SpringApplicationTests {
     @Autowired
     private ClienteService clienteService;
 
+    @Autowired
+    private LoginService loginService;
+
     @Test
     void shouldAgregarProducto() {
         categoriaService.limpiarTabla();
@@ -1218,5 +1221,20 @@ class SpringApplicationTests {
         assertNotEquals("MXN",producto1.getMoneda());
         assertEquals(0.25f,producto1.getDescuento());
     }
+
+    @Test
+    void testAuthenticateValidCredentials() {
+        String username = "admin";
+        String password = "password123";
+
+        // Verifica que el método authenticate devuelva true para credenciales válidas
+        assertTrue(loginService.createAdminAccount(username, password));
+        assertTrue(loginService.authenticate(username, password));
+        assertFalse(loginService.authenticate(username, "wrongpassword"));
+    }
+
+
+
+
 }
 
