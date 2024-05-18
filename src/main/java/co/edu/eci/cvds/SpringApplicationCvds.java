@@ -16,23 +16,16 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class SpringApplicationCvds {
 
-    private final ProductoService productoService;
-    private final VehiculoService vehiculoService;
-    private final CotizacionSerrvice cotizacionSerrvice;
-    private final ClienteService clienteService;
 
     @Autowired
     public SpringApplicationCvds(
             ProductoService productoService,
             VehiculoService vehiculoService,
-            CotizacionSerrvice cotizacionService,
+            CotizacionService cotizacionService,
             ClienteService clienteService
 
     ) {
-        this.productoService = productoService;
-        this.vehiculoService = vehiculoService;
-        this.cotizacionSerrvice = cotizacionService;
-        this.clienteService = clienteService;
+
 
     }
 
@@ -51,5 +44,7 @@ public class SpringApplicationCvds {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
+
 
 }
