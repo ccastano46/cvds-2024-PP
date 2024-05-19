@@ -1,24 +1,33 @@
 package co.edu.eci.cvds;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
-import co.edu.eci.cvds.model.*;
-import co.edu.eci.cvds.repository.CotizacionRepository;
-import co.edu.eci.cvds.repository.ProductoRepository;
-import co.edu.eci.cvds.repository.VehiculoRepository;
-import co.edu.eci.cvds.service.*;
+import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.money.Monetary;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import javax.money.Monetary;
-import java.time.LocalDateTime;
-import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.when;
+
+import co.edu.eci.cvds.model.Cliente;
+import co.edu.eci.cvds.model.Cotizacion;
+import co.edu.eci.cvds.model.Login;
+import co.edu.eci.cvds.model.Producto;
+import co.edu.eci.cvds.model.Vehiculo;
+import co.edu.eci.cvds.repository.CotizacionRepository;
+import co.edu.eci.cvds.repository.LoginRepository;
+import co.edu.eci.cvds.repository.ProductoRepository;
+import co.edu.eci.cvds.repository.VehiculoRepository;
+import co.edu.eci.cvds.service.CotizacionSerrvice;
+import co.edu.eci.cvds.service.LoginService;
+import co.edu.eci.cvds.service.ProductoService;
+import co.edu.eci.cvds.service.VehiculoService;
 
 
 
@@ -45,7 +54,11 @@ class SpringApplicationTests {
     @InjectMocks
     private CotizacionSerrvice cotizacionSerrvice;
 
+    @Mock
+    private LoginRepository loginRepository;
 
+    @InjectMocks
+    private LoginService loginService;
 
 
 
@@ -380,5 +393,52 @@ class SpringApplicationTests {
         assertNotEquals(producto, producto1);
         assertNotEquals(cotizacion, cotizacion2);
         assertNotEquals(cliente, cliente1);
+    }
+    @Test
+    void testAuthenticateValidCredentials() {
+        String username = "admin";
+        String password = "password123";
+        when(loginRepository.existsByUsername(username, password)).thenReturn(true);
+
+        // Verifica que el método authenticate devuelva true para credenciales válidas
+        assertTrue(loginService.authenticate(username, password));
+    }
+
+    @Test
+    void testAuthenticateInvalidCredentials() {
+        String username = "admin";
+        String password = "wrongpassword";
+        when(loginRepository.existsByUsername(username, password)).thenReturn(false);
+
+        // Verifica que el método authenticate devuelva false para credenciales inválidas
+        assertFalse(loginService.authenticate(username, password));
+    }
+
+    @Test
+    void testCreateAdminAccountSuccess() {
+        String username = "newadmin";
+        String password = "adminpass";
+
+        when(loginRepository.existsByUsername(username, password)).thenReturn(false);
+
+        // Verifica que el método createAdminAccount devuelva true si la cuenta no existe
+        assertTrue(loginService.createAdminAccount(username, password));
+
+        // Verifica que se haya llamado al método save del repositorio
+        verify(loginRepository, times(1)).save(any(Login.class));
+    }
+
+    @Test
+    void testCreateAdminAccountFailure() {
+        String username = "existingadmin";
+        String password = "adminpass";
+
+        when(loginRepository.existsByUsername(username, password)).thenReturn(true);
+
+        // Verifica que el método createAdminAccount devuelva false si la cuenta ya existe
+        assertFalse(loginService.createAdminAccount(username, password));
+
+        // Verifica que no se haya llamado al método save del repositorio
+        verify(loginRepository, times(0)).save(any(Login.class));
     }
 }

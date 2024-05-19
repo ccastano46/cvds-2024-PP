@@ -1,9 +1,10 @@
 package co.edu.eci.cvds.service;
 
-import co.edu.eci.cvds.model.Login;
-import co.edu.eci.cvds.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import co.edu.eci.cvds.model.Login;
+import co.edu.eci.cvds.repository.LoginRepository;
 
 @Service
 public class LoginService {
@@ -23,9 +24,9 @@ public class LoginService {
         // Verifica si ya existe un usuario con el nombre de usuario dado
         if (!loginRepository.existsByUsername(username, password)) {
             loginRepository.save(new Login(username, password));
-            return true; 
+            return true;
         }
-        return false; 
+        return false;
     }
 }
 
