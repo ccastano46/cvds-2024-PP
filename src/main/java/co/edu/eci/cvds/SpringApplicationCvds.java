@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 import co.edu.eci.cvds.service.ClienteService;
-import co.edu.eci.cvds.service.CotizacionSerrvice;
+import co.edu.eci.cvds.service.CotizacionService;
 import co.edu.eci.cvds.service.LoginService;
 import co.edu.eci.cvds.service.ProductoService;
 import co.edu.eci.cvds.service.VehiculoService;
@@ -23,21 +23,21 @@ public class SpringApplicationCvds {
 
     private final ProductoService productoService;
     private final VehiculoService vehiculoService;
-    private final CotizacionSerrvice cotizacionSerrvice;
+    private final CotizacionService cotizacionService;
     private final ClienteService clienteService;
     private final LoginService loginService;
     @Autowired
     public SpringApplicationCvds(
             ProductoService productoService,
             VehiculoService vehiculoService,
-            CotizacionSerrvice cotizacionService,
+            CotizacionService cotizacionService,
             ClienteService clienteService,
             LoginService loginService
 
     ) {
         this.productoService = productoService;
         this.vehiculoService = vehiculoService;
-        this.cotizacionSerrvice = cotizacionService;
+        this.cotizacionService = cotizacionService;
         this.clienteService = clienteService;
         this.loginService = loginService;
     }
