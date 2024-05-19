@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamiento de Citas</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        label, input, select, textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <th:block th:replace="fragments/general.html::headerfiles('Agendamiento de Citas')"></th:block>
+
+    <div class="container">
+        <h1>Agendamiento de Citas</h1>
+        <form action="/Cotizacion/Agendamiento" method="post" id="appointmentForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="date">Fecha de la cita:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Hora de la cita:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="message">Mensaje (opcional):</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button type="submit">Agendar Cita</button>
+        </form>
+    </div>
+
+    <footer th:replace="fragments/general::empty-footer"></footer>
+</body>
+</html>

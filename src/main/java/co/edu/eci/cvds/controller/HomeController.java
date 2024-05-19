@@ -1,6 +1,5 @@
 package co.edu.eci.cvds.controller;
 
-import co.edu.eci.cvds.model.Vehiculo;
 import co.edu.eci.cvds.service.VehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,14 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-
-import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
 @Controller
-@RequestMapping(value = "/home")
+@RequestMapping(value = "/LincolnLines")
 public class HomeController {
     private final VehiculoService vehiculoService;
 
@@ -26,37 +22,24 @@ public class HomeController {
     }
 
     @GetMapping("")
-    public String home(Model model, @RequestParam(required = false) String marca, @RequestParam(required = false) String modelo) {
-        List<Vehiculo> vehiculosList = vehiculoService.getVehiculos();
-        HashSet<String> marcas = new HashSet<>();
-        HashSet<String> modelos = new HashSet<>();
-        HashSet<String> vehicleYears = new HashSet<>();
-        for(Vehiculo vehiculo : vehiculosList) {
-            marcas.add(vehiculo.getMarca());
-        }
-        if(marca == null) marca = "";
-        else{
-            marcas.remove(marca);
-            vehiculosList = vehiculoService.getVehiculosByMarca(marca);
-            for(Vehiculo vehiculo : vehiculosList) {
-                modelos.add(vehiculo.getModel());
-            }
-        }
-        if(marca.isEmpty() || modelo == null) modelo = "";
-        else {
-            modelos.remove(modelo);
-            vehiculosList = vehiculoService.getVehiculosByMarcaModelo(marca,modelo);
-            for(Vehiculo vehiculo : vehiculosList) {
-                vehicleYears.add(vehiculo.getYearVehicle());
-            }
-        }
-        model.addAttribute("marca", marca);
-        model.addAttribute("modelo", modelo);
+    public String home(Model model) {
+        Set<String> marcas = vehiculoService.getMarcas();
         model.addAttribute("marcas", marcas);
-        model.addAttribute("modelos", modelos);
-        model.addAttribute("vehicleYears", vehicleYears);
         return "index";
     }
+
+
+    @GetMapping("/agendamiento")
+    public String agendamiento(Model model) {
+        return "Agendamiento";
+    }
+
+    @GetMapping("/cotizacionFinal")
+    public String cotizacion(Model model) {
+        return "/lista/cotizacionFinal";
+    }
+
+
 
 
 
