@@ -657,9 +657,10 @@ class SpringApplicationTests {
         float total = cotizacionService.totalSinDescuento(id) - cotizacionService.calcularDescuentoTotal(id) + cotizacionService.calcularImpuestoTotal(id);
         float verdadero = 8373740519f - 6709090009.60f + 536727200.77f + 353415.79f;
         float tasaError = Math.abs(verdadero-calculado)/verdadero;
+        float tasaError2 = Math.abs(total-calculado)/total;
         assertTrue(tasaError <= 0.05);
         assertEquals(4800000f,cotizacionService.calcularFinal(cotizacion1.getIden()));
-
+        assertTrue(tasaError2 < 1.0E-6);
     }
 
     @Test
