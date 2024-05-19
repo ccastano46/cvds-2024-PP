@@ -17,18 +17,21 @@ public class LoginService {
     }
 
     public boolean authenticate(String username, String password) {
-        return loginRepository.existsByUsername(username, password);
+        return loginRepository.existsByUsernameAndPassword(username,password);
     }
 
     public boolean createAdminAccount(String username, String password) {
         // Verifica si ya existe un usuario con el nombre de usuario dado
-        if (!loginRepository.existsByUsername(username, password)) {
+        if (!loginRepository.existsByUsername(username)) {
             loginRepository.save(new Login(username, password));
             return true;
         }
         return false;
     }
 
+    public Login obtenerLogin(String username){
+        return loginRepository.findByUsername(username).get(0);
+    }
 
 }
 

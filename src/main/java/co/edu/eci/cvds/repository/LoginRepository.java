@@ -4,9 +4,12 @@ import org.springframework.stereotype.Repository;
 
 import co.edu.eci.cvds.model.Login;
 
+import java.util.List;
 
 
 @Repository
 public interface LoginRepository extends JpaRepository<Login, String> {
-    boolean existsByUsername(String username, String password);
+    boolean existsByUsernameAndPassword(String username,String password);
+    boolean existsByUsername(String username);
+    List<Login> findByUsername(String username);
 }
