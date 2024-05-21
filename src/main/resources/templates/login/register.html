@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<th:block th:replace="fragments/general.html::headerfiles('Login Page')"></th:block>
+
+<head>
+    <style>
+        body {
+            background-color: #0F0E0E;
+            /* Color de fondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Añadido para posicionar el contenido relativo al body */
+        }
+
+        .form-label[for="password"],
+        .form-label[for="email"],
+        .form-label[for="first_name"],
+        .form-label[for="last_name"],
+        .form-label {
+            color: #FFFFFF;
+            /* Color del texto de los campos */
+            font-size: 24px;
+            /* Tamaño de la fuente de las etiquetas */
+            font-weight: bold;
+            /* Negrita en las etiquetas */
+            margin-bottom: 20px; /* Ajusta el margen inferior de las etiquetas */
+            display: block; /* Mostrar en bloque para que estén arriba */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            font-size: 24px;
+            /* Tamaño de la fuente de los inputs */
+            padding: 10px;
+            /* Espaciado interno de los inputs */
+            margin-bottom: 20px;
+            /* Espacio entre los inputs */
+            width: 100%; /* Ancho completo del contenedor */
+            box-sizing: border-box; /* Incluir el padding en el ancho */
+            border: 2px solid transparent; /* Borde inicial transparente */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="tel"]:focus {
+            outline: none; /* Quita el borde de enfoque por defecto */
+        }
+
+        /* Estilos para los campos requeridos */
+        input[type="text"].required,
+        input[type="email"].required,
+        input[type="password"].required,
+        input[type="tel"].required {
+            border-color: #D91F28; /* Color rojo para campos incompletos */
+        }
+
+        /* Estilos para los campos requeridos cuando están completos */
+        input[type="text"].required.completed,
+        input[type="email"].required.completed,
+        input[type="password"].required.completed,
+        input[type="tel"].required.completed {
+            border-color: green; /* Color verde para campos completos */
+        }
+
+        /* Estilo específico para el campo Celular */
+        input[type="tel"] {
+            width: calc(100% - 20px); /* Ancho menos el padding */
+            padding: 10px; /* Igualar al padding de los otros inputs */
+        }
+
+        .btn-primary {
+            background-color: #D91F28;
+            /* Color del botón "Sign in" */
+            border-color: #D91F28;
+            /* Color del borde del botón "Sign in" */
+            font-size: 24px;
+            /* Tamaño de la fuente del botón */
+            padding: 10px 20px;
+            /* Espaciado interno del botón */
+            margin-bottom: 20px;
+            /* Espacio entre el botón y los inputs */
+            display: inline-block;
+            /* Cambiar a bloque en línea */
+            width: auto; /* Ancho automático según el contenido */
+            max-width: 200px; /* Ancho máximo para no expandirse demasiado */
+            text-align: center;
+            /* Centrar texto horizontalmente */
+        }
+
+        .btn-primary:hover {
+            background-color: #B21A23;
+            /* Cambia el color al pasar el ratón sobre el botón */
+            border-color: #B21A23;
+            /* Cambia el color del borde al pasar el ratón sobre el botón */
+        }
+
+        /* Estilos para el contenedor principal del formulario */
+        .form-container {
+            background-color: rgba(41, 44, 51, 0.3);
+            /* Color de fondo transparente */
+            border-radius: 20px;
+            /* Aumenta el radio del borde */
+            padding: 40px;
+            /* Aumenta el espaciado interno */
+            display: flex;
+            flex-direction: column;
+            /* Alinea los elementos verticalmente */
+            align-items: center;
+            /* Centra los elementos horizontalmente */
+            position: absolute;
+            top: 50%;
+            right: 10%; /* Ajusta el margen derecho según necesites */
+            transform: translateY(-50%);
+            /* Centra verticalmente con transform */
+            width: 80%; /* Ancho del contenedor al 80% del viewport */
+            max-width: 600px;
+            /* Ancho máximo del contenedor */
+            height: auto; /* Altura automática según contenido */
+        }
+
+        /* Estilo para la imagen del logo */
+        body::before {
+            content: '';
+            background-image: url('/static/Logo.png');
+            background-size: contain;
+            background-repeat: no-repeat; /* Evitar repetición en mosaico */
+            background-position: center left;
+            position: fixed;
+            top: calc(50% - 25vh); /* Ajustar posición vertical */
+            left: calc(10vw + 1/4 * 25vw); /* Mover 1/4 más a la derecha */
+            width: 25vw; /* Ancho de la imagen */
+            height: 50vh; /* Altura de la imagen */
+            z-index: 1; /* Asegurar que esté por encima del formulario */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="form-container" id="formContainer">
+            <!-- Contenedor principal del formulario -->
+            <div class="px-4 py-5 my-5 text-center">
+                <form action="/login/register" method="post" onsubmit="return validateForm()">
+                    <!-- Etiquetas iniciales -->
+                    <!-- <div id="initialLabels">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="first_name">Primer Nombre</label>
+                            <input id="first_name" name="first_name" type="text" class="form-control required" required />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="second_name">Segundo Nombre</label>
+                            <input id="second_name" name="second_name" type="text" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="last_name">Primer Apellido</label>
+                            <input id="last_name" name="last_name" type="text" class="form-control required" required />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="second_lastname">Segundo Apellido</label>
+                            <input id="second_lastname" name="second_lastname" type="text" class="form-control" />
+                        </div> -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="email">Correo electrónico</label>
+                            <input id="email" name="email" type="email" class="form-control required" required />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="password">Contraseña</label>
+                            <input id="password" name="password" type="password" class="form-control required" required />
+                        </div>
+                        <!-- <div class="form-outline mb-4">
+                            <label class="form-label" for="cellphone">Celular</label>
+                            <input id="cellphone" name="cellphone" type="tel" class="form-control required" required />
+                        </div> -->
+                    </div>
+
+                    <!-- Submit button -->
+                    <input type="submit" value="Registro" class="btn btn-primary btn-block mb-4" />
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include Google Sign-In Script -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- Google Sign-In Callback Function -->
+    <script>
+        function validateForm() {
+            // Obtenemos los campos requeridos
+            var requiredFields = document.querySelectorAll('.required');
+
+            // Verificamos si están completos
+            var isValid = true;
+            requiredFields.forEach(function(field) {
+                if (field.value.trim() === '') {
+                    isValid = false;
+                    field.classList.remove('completed'); // Removemos la clase completed si está vacío
+                    field.classList.add('required'); // Añadimos la clase required si está vacío
+                } else {
+                    field.classList.remove('required'); // Removemos la clase required si está lleno
+                    field.classList.add('completed'); // Añadimos la clase completed si está lleno
+                }
+            });
+
+            return isValid;
+        }
+
+        // Función para cambiar las etiquetas y el texto del botón
+        function changeLabels() {
+            var initialLabels = document.getElementById('initialLabels');
+            var additionalLabels = document.getElementById('additionalLabels');
+            var submitButton = document.querySelector('.btn-primary');
+
+            // Verificar si hay campos con borde rojo (incompletos)
+            var redFields = document.querySelectorAll('.required');
+            var hasRedFields = Array.from(redFields).some(function(field) {
+                return field.style.borderColor === 'red';
+            });
+
+            if (!hasRedFields) {
+                initialLabels.style.display = 'none';
+                additionalLabels.style.display = 'block';
+                submitButton.value = 'Registro';
+
+                // Ajustar altura del contenedor transparente
+                var formContainer = document.getElementById('formContainer');
+                var formHeight = formContainer.scrollHeight;
+                formContainer.style.height = formHeight + 'px';
+            } else {
+                alert('Por favor complete los campos obligatorios.');
+            }
+        }
+
+        // Cambiar el borde a verde cuando se deje de escribir
+        var inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="tel"]');
+        inputs.forEach(function(input) {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() !== '') {
+                    this.style.borderColor = 'green';
+                } else {
+                    this.style.borderColor = 'red';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
