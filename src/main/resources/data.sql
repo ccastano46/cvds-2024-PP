@@ -100,49 +100,428 @@ insert into Categorias Values ('NEUMATICOS');
 
 
 /*Poblando productos*/
+/*motores*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MOTOR V10', '/img/motor1.jpeg', 200, 'EUR', 0.10, 0.14, 'Motor V10', 'Potente motor V10 diseñado para ofrecer un rendimiento excepcional en aplicaciones de alto rendimiento.');
 
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('LUCES LED DE LUJO PARA PERSIANA PARRILLA TIPO TOYOTA FORD','/img/luces1.png',100000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('KIT DE FAROS LED 9005 9006 PARA 2021 KIA SPORTAGE 40000LM','/img/luces2.png',300000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('EXPLORADORAS DE LED DRL DELANTERAS PARA TOYOTA 4RUNNER 2014-2024','/img/luces3.png',699900,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('FAROLAS LED DRL TIPO XB PARA TOYOTA LAND CRUISER SERIES 70-71-76-77-78-79','/img/luces4.png',5999900,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('FAROLAS LED DRL TIPO DUBAI DELUXE PARA TOYOTA HILUX 2021-2024','/IMG/LUCES5.PNG',5199900,'COP',0.5,0.3);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('PESTAÑAS LED DRL DELANTERAS PARA TOYOTA LAND CRUISER LC300 2022-2024','/IMG/LUCES6.PNG',1049900,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('MODULO DE ALARMA CHEVROLET O CHEVYSTAR ORIGINAL','/IMG/SEGURIDAD1.PNG',419900,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('DVR CON PANTALLA FULL HD 1080P DE 3 CAMARAS CON REVERSA PARA CARROS','/img/seguridad2.png',200100,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('CONTROL ALARMA / ULTRA','/img/seguridad4.png',80900,'COP',0.2,0.19);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ASIENTO CLÁSICO','/img/asientos1.png',750000,'COP',0.2,0.19);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ASIENTO MODERNO','/img/asientos2.png',920000,'COP',0,0.05);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ASIENTO ELEGANTE','/img/asientos3.png',890000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ASIENTO COMFORT','/img/asientos4.png',530000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('SISTEMA DE AUDIO PREMIUM','/img/sistemas2.png',1200000,'COP',0.3,0.19);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('SISTEMA DE AUDIO AVANZADO','/img/sistemas3.png',950000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('SISTEMA DE AUDIO DE ALTA FIDELIDAD','/img/sistemas4.png',1500899,'COP',0.1,0.19);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ALTAVOZ COAXIAL SISTEMA DE AUDIO PERSONALIZADO','/img/sistemas6.png',400000,'COP',0,0.19);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ACEITE ESTÁNDAR','/img/aceite1.png',200000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ACEITE PREMIUM','/img/aceite2.png',250000,'COP',0,0);
-INSERT INTO PRODUCTOS (NOMBRE,IMAGEN,VALOR,MONEDA,DESCUENTO,IMPUESTO) VALUES ('ACEITE SINTÉTICO','/img/aceite3.png',300000,'COP',0,0);
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MOTOR ELECTRICO YZ2023', 'img/motor2.jpg', 500, 'USD', 0.12, 0.13, 'Motor eléctrico YZ2023', 'Motor eléctrico eficiente y potente YZ2023 diseñado para vehículos eléctricos de alto rendimiento.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BMW 528Xi', 'img/motor3.jpg', 310, 'CHF', 0.10, 0.14, 'BMW 528Xi', 'Motor BMW 528Xi diseñado para proporcionar un equilibrio perfecto entre rendimiento y eficiencia en vehículos de la serie 5.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MOTOR MAZDA 3', 'img/motor4.png', 999, 'USD', 0.15, 0.12, 'Motor Mazda 3', 'Motor potente y eficiente diseñado para ofrecer un rendimiento suave y confiable en el Mazda 3 y otros vehículos compatibles.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MOTOR V8 DE HIDROGENO', 'img/motor5.jpeg', 450, 'JPY', 0.20, 0.10, 'Motor V8 de hidrógeno', 'Innovador motor V8 que utiliza hidrógeno como combustible, ofreciendo una alternativa ecológica y potente para vehículos.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MOTOR V8 CHEVROLET', 'img/motor6.png', 800, 'HKD', 0.5, 0.15, 'Motor V8 Chevrolet', 'Potente motor V8 de Chevrolet diseñado para ofrecer un rendimiento excepcional y una experiencia de conducción emocionante en una variedad de vehículos.');
+
+/*DIRECCION*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BOMBA DE DIRECCION HIDRAULICA', 'img/direccion1.png', 2200, 'USD', 0.10, 0.14, 'Bomba de dirección hidráulica', 'Componente crucial del sistema de dirección asistida que proporciona la presión hidráulica necesaria para asistir en el giro del volante.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BOMBA DE DIRECCIÓN HIDRAULICA TIPO 2', 'img/direccion2.png', 560, 'EUR', 0.15, 0.12, 'Bomba de dirección hidráulica tipo 2', 'Variante de la bomba de dirección hidráulica, diseñada para aplicaciones específicas con características y rendimiento mejorados.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('DEPOSITO LIQUIDO DE DIRECCION', 'img/direccion3.png', 750, 'CAD', 0.20, 0.10, 'Depósito líquido de dirección', 'Contenedor diseñado para almacenar el líquido hidráulico utilizado en el sistema de dirección asistida, asegurando un suministro constante y adecuado de fluido para el correcto funcionamiento del sistema.');
+
+/*SUSPENCION*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SUSPENSION DE AIRE', 'img/suspencion1.png', 350000, 'USD', 0.10, 0.14, 'Suspensión de aire', 'Sistema de suspensión de aire diseñado para proporcionar una conducción suave y ajustable, ideal para vehículos de alto rendimiento y carga pesada.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SUSPENSION CONVENCIONAL', 'img/suspencion2.png', 150000, 'EUR', 0.15, 0.12, 'Suspensión convencional', 'Sistema de suspensión convencional diseñado para ofrecer un equilibrio entre comodidad y manejo, adecuado para aplicaciones diarias y conducción en carretera.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT BASICO SUSPENSION', 'img/suspencion3.png', 600000, 'CAD', 0.20, 0.10, 'Kit básico de suspensión', 'Kit básico de suspensión que incluye componentes esenciales para mejorar la estabilidad y el rendimiento de la suspensión de tu vehículo.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT PREMIUM SUSPENSION', 'img/suspencion4.png', 900000, 'CNY', 0.5, 0.13, 'Kit premium de suspensión', 'Kit premium de suspensión que ofrece características avanzadas y materiales de alta calidad para una mejora significativa en el manejo y la estabilidad del vehículo.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('HERRAMIENTA DE SUSPENSION', 'img/suspencion5.png', 130000, 'AUD', 0.8, 0.11, 'Herramienta de suspensión', 'Herramienta especializada diseñada para facilitar la instalación y ajuste de componentes de suspensión, permitiendo un trabajo preciso y eficiente.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SUSPENSION DE AIRE 2', 'img/suspencion6.png', 679000, 'MXN', 0.12, 0.15, 'Suspensión de aire 2', 'Otra opción de suspensión de aire diseñada para adaptarse a una variedad de vehículos, proporcionando un nivel ajustable de confort y rendimiento en diferentes condiciones de carga y terreno.');
+
+/*LUCES*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LUCES LED DE LUJO PARA PERSIANA PARRILLA TIPO TOYOTA FORD', '/img/luces1.png', 100000, 'COP', 0, 0, 'Luces LED de lujo', 'Luces LED diseñadas para instalar en la parrilla tipo Toyota o Ford, proporcionando un aspecto de lujo y mejorando la visibilidad nocturna.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT DE FAROS LED 9005 9006 PARA 2021 KIA SPORTAGE 40000LM', '/img/luces2.png', 300000, 'COP', 0, 0, 'Kit de faros LED', 'Kit de faros LED de alta potencia diseñados específicamente para el modelo 2021 de Kia Sportage, proporcionando una iluminación potente y eficiente.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('EXPLORADORAS DE LED DRL DELANTERAS PARA TOYOTA 4RUNNER 2014-2024', '/img/luces3.png', 699900, 'COP', 0, 0, 'Exploradoras LED DRL delanteras', 'Exploradoras LED con luces diurnas (DRL) diseñadas para Toyota 4Runner modelos 2014-2024, ofreciendo un aspecto moderno y mejorando la visibilidad en condiciones de baja luminosidad.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('FAROLAS LED DRL TIPO XB PARA TOYOTA LAND CRUISER SERIES 70-71-76-77-78-79', '/img/luces4.png', 5999900, 'COP', 0, 0, 'Farolas LED DRL tipo XB', 'Farolas LED con luces diurnas (DRL) de tipo XB diseñadas para Toyota Land Cruiser series 70-71-76-77-78-79, proporcionando una iluminación potente y duradera.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('FAROLAS LED DRL TIPO DUBAI DELUXE PARA TOYOTA HILUX 2021-2024', '/img/luces5.png', 5199900, 'COP', 0.5, 0.3, 'Farolas LED DRL tipo Dubai Deluxe', 'Farolas LED con luces diurnas (DRL) de tipo Dubai Deluxe diseñadas para Toyota Hilux modelos 2021-2024, ofreciendo un diseño elegante y una iluminación brillante.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('PESTAÑAS LED DRL DELANTERAS PARA TOYOTA LAND CRUISER LC300 2022-2024', '/img/luces6.png', 1049900, 'COP', 0, 0, 'Pestañas LED DRL delanteras', 'Pestañas LED con luces diurnas (DRL) delanteras diseñadas para Toyota Land Cruiser LC300 modelos 2022-2024, proporcionando un aspecto personalizado y una mayor visibilidad en la carretera.');
+
+/*SISTEMA DE SEGURIDAD*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MODULO DE ALARMA CHEVROLET O CHEVYSTAR ORIGINAL', '/img/seguridad1.png', 419900, 'COP', 0.10, 0, 'Módulo de alarma original', 'Módulo de alarma diseñado específicamente para vehículos Chevrolet o compatible con el sistema ChevyStar, proporcionando seguridad adicional con funciones de alarma y protección.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('DVR CON PANTALLA FULL HD 1080P DE 3 CAMARAS CON REVERSA PARA CARROS', '/img/seguridad2.png', 200100, 'COP', 0, 0, 'DVR con pantalla Full HD y cámaras para autos', 'Sistema de grabación de video con pantalla Full HD y tres cámaras, incluida una cámara de reversa, para registrar y monitorear la actividad alrededor del vehículo.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('CONTROL ALARMA / ULTRA', '/img/seguridad3.png', 809, 'USD', 0.2, 0.19, 'Control de alarma ultra', 'Control remoto avanzado para sistemas de alarma, con características de seguridad adicionales y compatibilidad con una variedad de sistemas de seguridad vehicular para una protección óptima.');
+
+/*SENSORES*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SENSORES DE REVERSA', 'img/sensores1.png', 1000, 'USD', 0.1, 0.14, 'Sensores de reversa', 'Sensores diseñados para detectar objetos y alertar al conductor sobre obstáculos detrás del vehículo, mejorando la seguridad al estacionar o dar marcha atrás.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT SENSORES', 'img/sensores2.png', 229, 'EUR', 0.15, 0.12, 'Kit de sensores', 'Kit completo que incluye sensores de reversa y todo lo necesario para su instalación, proporcionando una solución conveniente y efectiva para mejorar la seguridad al retroceder.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SISTEMA START', 'img/sensores3.png', 660, 'CAD', 0.2, 0.1, 'Sistema Start', 'Sistema avanzado que combina sensores de reversa con otras funciones de seguridad y comodidad, como arranque remoto, para una experiencia de conducción más conveniente.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT COMPLETO', 'img/sensores4.png', 316, 'CNY', 0.05, 0.13, 'Kit completo', 'Kit completo de sensores de reversa que incluye tanto sensores como una cámara de respaldo, ofreciendo una solución integral para mejorar la seguridad al estacionar.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('CAMARA DE REVERSA DOMO', 'img/sensores5.png', 80, 'AUD', 0.08, 0.11, 'Cámara de reversa domo', 'Cámara compacta diseñada para montarse en la parte trasera del vehículo, proporcionando una vista clara y amplia del área detrás del vehículo para facilitar el estacionamiento y el retroceso.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SENSOR REVERSA CON CAMARA', 'img/sensores6.png', 2300, 'MXN', 0.12, 0.15, 'Sensor de reversa con cámara', 'Sensor de reversa integrado con una cámara de respaldo, proporcionando tanto alertas audibles como visuales para ayudar al conductor a evitar colisiones al retroceder.');
+
+
+/*BATERIAS*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BATERIA MAC SILVER', 'img/bateria1.png', 1100, 'USD', 0.1, 0.14, 'Batería Mac Silver', 'Batería de la línea Mac Silver, proporciona una potencia confiable y duradera para arranques suaves en una amplia gama de vehículos.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BATERÍA CARO EXTREMA', 'img/bateria2.png', 5000, 'EUR', 0.15, 0.12, 'Batería Caro Extrema', 'Batería de la serie Caro Extrema, diseñada para aplicaciones de alto rendimiento y resistencia, ofrece una potencia excepcional y una vida útil prolongada.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BATERIA MAC GOLD', 'img/bateria3.png', 1800, 'CAD', 0.2, 0.1, 'Batería Mac Gold', 'Batería de la línea Mac Gold, proporciona una potencia superior y una fiabilidad excepcional en condiciones de funcionamiento exigentes.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BATERIA 48 VARTA', 'img/bateria4.png', 500, 'CNY', 0.05, 0.13, 'Batería 48 Varta', 'Batería de la serie 48 Varta, diseñada para ofrecer un rendimiento fiable y duradero en una amplia variedad de aplicaciones automotrices.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BATERIA MAC SILVER', 'img/bateria5.png', 1400, 'AUD', 0.08, 0.11, 'Batería Mac Silver', 'Batería de la línea Mac Silver, ofrece una combinación de potencia y durabilidad para un arranque confiable en diferentes condiciones de temperatura y uso.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('BATERIA VARTA BLACK', 'img/bateria6.png', 950, 'MXN', 0.12, 0.15, 'Batería Varta Black', 'Batería de la serie Varta Black, diseñada para proporcionar un rendimiento constante y una vida útil prolongada en vehículos de diferentes tipos y tamaños.');
+
+/*ACEITES*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACEITE ESTANDAR', 'img/aceite1.png', 2000, 'USD', 0.1, 0.14, 'Aceite estándar', 'Aceite convencional para motores de vehículos, proporciona lubricación básica y protección contra el desgaste.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACEITE PREMIUM', 'img/aceite2.png', 200, 'EUR', 0.12, 0.12, 'Aceite premium', 'Aceite de calidad premium formulado para ofrecer una lubricación superior y una protección avanzada contra el desgaste del motor.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACEITE SINTETICO', 'img/aceite3.png', 300, 'CAD', 0.15, 0.1, 'Aceite sintético', 'Aceite de tecnología sintética diseñado para proporcionar una lubricación excepcional y una protección superior contra el desgaste, resistente a altas temperaturas y condiciones de funcionamiento extremas.');
+
+/*LIQUIDO DE FRENOS*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE FRENOS ESTÁNDAR', 'img/liq1.png', 3500, 'EUR', 0.1, 0.14, 'Líquido de frenos estándar', 'Líquido de frenos convencional, adecuado para sistemas de frenado estándar, proporciona una respuesta de frenado fiable.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE FRENOS PREMIUM', 'img/liq2.png', 500, 'USD', 0.15, 0.1, 'Líquido de frenos premium', 'Líquido de frenos de calidad premium, con propiedades de alto rendimiento para una respuesta de frenado mejorada y una protección contra la corrosión.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE FRENOS DE ALTO RENDIMIENTO', 'img/liq3.png', 750000, 'USD', 0.2, 0.12, 'Líquido de frenos de alto rendimiento', 'Líquido de frenos diseñado para aplicaciones de alto rendimiento, proporciona una resistencia térmica superior y una respuesta de frenado excepcional en condiciones extremas.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE FRENOS SINTÉTICO', 'img/liq4.png', 2000, 'MXN', 0.1, 0.1, 'Líquido de frenos sintético', 'Líquido de frenos de tecnología sintética, formulado para ofrecer una estabilidad térmica superior y una protección contra la corrosión en sistemas de frenado modernos.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE FRENOS RACING', 'img/liq5.png', 120, 'CNY', 0.25, 0.15, 'Líquido de frenos racing', 'Líquido de frenos diseñado específicamente para aplicaciones de competición, proporciona una resistencia térmica excepcional y una respuesta de frenado óptima en condiciones extremas de carreras.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE FRENOS PROFESIONAL', 'img/liq6.png', 130, 'USD', 0.2, 0.12, 'Líquido de frenos profesional', 'Líquido de frenos de uso profesional, diseñado para proporcionar un rendimiento fiable y una protección duradera en una amplia gama de condiciones de conducción.');
+
+/*DIRECCION*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE DIRECCIÓN ESTÁNDAR', 'img/redi1.png', 100, 'AUD', 0.05, 0.12, 'Líquido de dirección estándar', 'Líquido de dirección convencional para sistemas de dirección asistida, proporciona lubricación y protección contra la corrosión.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE DIRECCIÓN PREMIUM', 'img/redi2.png', 200000, 'USD', 0.1, 0.1, 'Líquido de dirección premium', 'Líquido de dirección de calidad premium, formulado para proporcionar una lubricación superior y protección contra el desgaste en sistemas de dirección asistida avanzados.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ALTO RENDIMIENTO DIRECCIÓN', 'img/redi3.png', 250000, 'BRL', 0.08, 0.12, 'Alto rendimiento dirección', 'Líquido de dirección de alto rendimiento diseñado para ofrecer una respuesta precisa y una conducción suave en condiciones exigentes.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE DIRECCIÓN SINTÉTICO', 'img/redi4.png', 110090, 'USD', 0.07, 0.1, 'Líquido de dirección sintético', 'Líquido de dirección de tecnología sintética diseñado para resistir altas temperaturas y proporcionar una lubricación duradera en sistemas de dirección asistida.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DE DIRECCIÓN RACING', 'img/redi5.png', 280000, 'JPY', 0.12, 0.15, 'Líquido de dirección racing', 'Líquido de dirección de alto rendimiento diseñado específicamente para vehículos de competición, ofrece una respuesta rápida y precisa en condiciones extremas.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LÍQUIDO DIRECCIÓN PROFESIONAL', 'img/redi6.png', 300000, 'USD', 0.1, 0.12, 'Líquido dirección profesional', 'Líquido de dirección de uso profesional, formulado para proporcionar un rendimiento superior y una protección duradera en sistemas de dirección asistida de alta exigencia.');
+
+/*REFIGERANTE*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REFRIGERANTE ESTÁNDAR', 'img/refri.png', 80, 'BRL', 0.05, 0.12, 'Refrigerante estándar', 'Refrigerante estándar para sistemas de enfriamiento de vehículos, proporciona protección contra el sobrecalentamiento y la corrosión.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REFRIGERANTE PREMIUM', 'img/refri2.png', 110, 'AUD', 0.1, 0.1, 'Refrigerante premium', 'Refrigerante de calidad premium con propiedades de enfriamiento avanzadas y protección duradera contra la corrosión y el óxido.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REFRIGERANTE +RENDIMIENTO', 'img/refri3.png', 140, 'CAD', 0.08, 0.12, 'Refrigerante +rendimiento', 'Refrigerante formulado para ofrecer un rendimiento superior en condiciones extremas, proporciona una refrigeración eficaz y una protección duradera del sistema.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REFRIGERANTE SINTÉTICO', 'img/refri4.png', 500, 'MXN', 0.07, 0.1, 'Refrigerante sintético', 'Refrigerante de tecnología sintética diseñado para proporcionar una protección excepcional contra la corrosión y el sobrecalentamiento del motor.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REFRIGERANTE DE LARGA DURACIÓN', 'img/refri5.png', 160, 'JPY', 0.12, 0.15, 'Refrigerante de larga duración', 'Refrigerante de larga duración que garantiza un rendimiento óptimo del sistema de enfriamiento durante períodos prolongados.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REFRIGERANTE PROFESIONAL', 'img/refri6.png', 170, 'EUR', 0.1, 0.12, 'Refrigerante profesional', 'Refrigerante de uso profesional, formulado para proporcionar una refrigeración eficiente y una protección duradera en condiciones exigentes.');
+
+/*TRANSMISION*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('PIÑÓN PLANO', 'img/transmicion1.png', 700, 'MXN', 0.05, 0.12, 'Piñón plano', 'Componente de transmisión diseñado para transmitir el movimiento de forma eficiente en un sistema de transmisión.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT CLUTCH EMBRAGUE', 'img/transmicion2.png', 270, 'USD', 0.1, 0.1, 'Kit clutch embrague', 'Conjunto de componentes de embrague diseñados para un rendimiento óptimo y una transmisión suave.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT PLANETARIOS Y SATELITES', 'img/transmicion3.png', 1900, 'AUD', 0.08, 0.12, 'Kit planetarios y satélites', 'Kit de componentes planetarios y satélites para sistemas de transmisión de alta calidad y durabilidad.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('CAJA DE TRANSMISIÓN AUTOMÁTICA', 'img/transmicion4.png', 1100, 'USD', 0.07, 0.1, 'Caja de transmisión automática', 'Caja de transmisión automática diseñada para ofrecer cambios de marcha suaves y eficientes.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACDELCO GM ORIGINAL (AUTOMÁTICA)', 'img/transmicion5.png', 8600, 'JPY', 0.12, 0.15, 'ACDelco GM original (automática)', 'Producto original de ACDelco GM diseñado específicamente para sistemas de transmisión automáticos.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('INGKAN POLEA PRIMARIA DE TRANSMISIÓN', 'img/transmicion6.png', 7000, 'USD', 0.1, 0.12, 'Ingkan polea primaria de transmisión', 'Polea primaria de transmisión de la marca Ingkan, diseñada para garantizar un funcionamiento suave y eficiente del sistema de transmisión.');
+
+/*FRENOS*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('WILWOOD 140 11385 NEGRO KIT DE PINZA DE FRENO TRASERA', 'img/frenos1.png', 3808, 'BRL', 0, 0.15, 'Kit de pinza de freno trasera Wilwood 140 11385 negro', 'Kit de pinza de freno trasera de la marca Wilwood, modelo 140 11385, color negro.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('MASTER KIT DE FRENO SUPERPRO TCPT', 'img/frenos2.png', 3688, 'USD', 0, 0.15, 'Master kit de freno Superpro TCPT', 'Kit de freno Superpro TCPT que incluye componentes de alta calidad para un rendimiento superior.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('POWER STOP K2152 - PASTILLAS DE FRENO DELANTERAS', 'img/frenos3.png', 898, 'USD', 0, 0.15, 'Pastillas de freno delanteras Power Stop K2152', 'Pastillas de freno delanteras de la marca Power Stop, modelo K2152, diseñadas para un frenado eficiente.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('KIT DE FRENO DELANTERO Y TRASERO POWER STOP KOE7909', 'img/frenos4.png', 3200, 'MXN', 0, 0.15, 'Kit de freno delantero y trasero Power Stop KOE7909', 'Kit de freno delantero y trasero de la marca Power Stop, modelo KOE7909, para un reemplazo completo de frenos.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('WILWOOD FORGED DYNALITE-M KIT DELANTERO 11.00 EN 1 PC ROTOR', 'img/frenos5.png', 254, 'AUD', 0, 0.15, 'Kit delantero Wilwood Forged Dynalite-M 11.00 en 1 PC rotor', 'Kit delantero de la marca Wilwood, modelo Forged Dynalite-M, con rotor de 11.00 pulgadas en una sola pieza.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('WILWOOD 140 - 11290-BK DELANTERO DE PINZA KIT D52/BIG GM', 'img/frenos6.png', 171, 'USD', 0, 0.15, 'Kit delantero de pinza Wilwood 140 - 11290-BK D52/BIG GM', 'Kit delantero de pinza de la marca Wilwood, modelo 140 - 11290-BK, compatible con D52/BIG GM.');
+
+/*ASIENTOS*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ASIENTO CLÁSICO', 'img/asiento1.png', 70000, 'COP', 0.2, 0.15, 'Asiento clásico', 'Asiento de estilo clásico diseñado para ofrecer comodidad y elegancia.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ASIENTO MODERNO', 'img/asiento2.png', 920600, 'COP', 0.3, 0.15, 'Asiento moderno', 'Asiento con diseño moderno y características avanzadas para una experiencia de confort superior.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ASIENTO ELEGANTE', 'img/asiento3.png', 890000, 'COP', 0.4, 0.15, 'Asiento elegante', 'Asiento elegante y sofisticado diseñado para brindar estilo y confort.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ASIENTO CONFORT', 'img/asiento4.png', 530, 'USD', 0, 0.15, 'Asiento confort', 'Asiento ergonómico y cómodo diseñado para largos períodos de uso.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ASIENTO PREMIUM', 'img/asiento5.png', 9800, 'MXN', 0, 0.15, 'Asiento premium', 'Asiento premium con materiales de alta calidad y diseño elegante.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ASIENTO ERGONÓMICO', 'img/asiento6.png', 720, 'BRL', 0.2, 0.15, 'Asiento ergonómico', 'Asiento diseñado ergonómicamente para promover una postura saludable y reducir la fatiga.');
+
+
+/*AIRE ACONDICIONADO*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REJILLA DE AIRE ACONDICIONADO', 'img/aco1.png', 600, 'USD', 0, 0.12, 'Rejilla de aire acondicionado multifuncioanl', 'Rejilla para sistemas de aire acondicionado.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('CALEFACCIÓN DE LUJO', 'img/aco2.png', 388, 'MXN', 0, 0.15, 'Calefacción de lujo', 'Sistema de calefacción de lujo para espacios interiores.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('FILTRO DE AIRE ACONDICIONADO EFICIENTE', 'img/aco3.png', 1100, 'BRL', 0, 0.15, 'Filtro de aire eficiente', 'Filtro para sistemas de aire acondicionado que garantiza una filtración eficiente.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACONDICIONAMIENTO PREMIUM', 'img/aco4.png', 800, 'AUD', 0.3, 0.11, 'Acondicionamiento premium', 'Sistema de acondicionamiento premium con características avanzadas.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACONDICIONAMIENTO MODERNO', 'img/aco5.png', 270, 'JPY', 0, 0.13, 'Acondicionamiento moderno', 'Sistema de acondicionamiento de aire con tecnología moderna.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ACONDICIONAMIENTO TIPO II', 'img/aco6.png', 3500, 'USD', 0, 0.11, 'Acondicionamiento tipo II', 'Sistema de acondicionamiento de aire de tipo II para aplicaciones industriales.');
+
+/*SISTEMA*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ALTAVOZ DINÁMICO 0', 'img/sistema1.png', 800, 'MXN', 0.2, 0.15, 'Altavoz dinámico 0', 'Altavoz dinámico de calidad con características avanzadas.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('AUDIO PREMIUM', 'img/sistema2.png', 120, 'USD', 0.1, 0.15, 'Audio premium', 'Sistema de audio premium para una experiencia de sonido superior.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SISTEMA AVANZADO', 'img/sistema3.png', 9000, 'JPY', 0.3, 0.14, 'Sistema avanzado', 'Sistema de audio avanzado con tecnología de última generación.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('AUDIO EFICIENTE', 'img/sistema4.png', 190, 'USD', 0, 0.11, 'Audio eficiente', 'Sistema de audio eficiente en términos de consumo de energía.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('SISTEMA DE AUDIO SURROUND', 'img/sistema5.png', 790, 'AUD', 0, 0.14, 'Sistema de audio surround', 'Sistema de audio con capacidad de sonido envolvente.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ALTAVOZ COAXIAL', 'img/sistema6.png', 400, 'USD', 0, 0.10, 'Altavoz coaxial', 'Altavoz con diseño coaxial para una reproducción de sonido precisa y clara.');
+
+
+/*ALINEACION*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ALINEACIÓN ESTÁNDAR', 'img/ali1.png', 1500, 'USD', 0, 0, 'Alineación estándar', 'Servicio de alineación estándar para vehículos.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ALINEACIÓN PREMIUM', 'img/ali2.png', 1700, 'AUD', 0, 0.5, 'Alineación premium', 'Servicio de alineación premium con ajustes avanzados.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('ALINEACIÓN TOP', 'img/ali3.png', 190, 'MXN', 0, 0.13, 'Alineación top', 'Servicio de alineación de alta calidad con precisión excepcional.');
+
+
+/*REPUESTOS*/
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REPUESTO ESTÁNDAR', 'img/repu1.png', 7500, 'USD', 0.1, 0.15, 'Repuesto estándar', 'Repuesto de calidad estándar para uso general.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REPUESTO PREMIUM', 'img/repu2.png', 9000, 'USD', 0.3, 0.12, 'Repuesto premium', 'Repuesto de alta calidad premium para un rendimiento superior.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REPUESTO ASDF', 'img/repu3.png', 1050, 'BRL', 0.8, 0.1, 'Repuesto ASDF', 'Repuesto de tipo ASDF con características especiales.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REPUESTO SINTÉTICO', 'img/repu4.png', 560, 'USD', 0, 0.19, 'Repuesto sintético', 'Repuesto fabricado con materiales sintéticos para mayor durabilidad.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('LARGA DURACIÓN', 'img/repu5.png', 110, 'USD', 0, 0.19, 'Larga duración', 'Producto diseñado para tener una vida útil prolongada.');
+
+INSERT INTO PRODUCTOS (NOMBRE, IMAGEN, VALOR, MONEDA, DESCUENTO, IMPUESTO, DESCRIPCION_CORTA, DESCRIPCION_TECNICA)
+VALUES ('REPUESTO PROFESIONAL', 'img/repu6.png', 120, 'USD', 0, 0.19, 'Repuesto profesional', 'Repuesto diseñado para uso profesional con estándares de calidad elevados.');
+
 
 
 /*POBLANDO PORDUCTOS POR CATEGORIA*/
+/*MECANICA*/
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','MOTOR V10');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','MOTOR ELECTRICO YZ2023');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','BMW 528XI');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','MOTOR MAZDA 3');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','MOTOR V8 DE HIDROGENO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','MOTOR V8 CHEVROLET');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','BOMBA DE DIRECCION HIDRAULICA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','BOMBA DE DIRECCIÓN HIDRAULICA TIPO 2');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','DEPOSITO LIQUIDO DE DIRECCION');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','SUSPENSION DE AIRE');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','SUSPENSION CONVENCIONAL');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','KIT BASICO SUSPENSION');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','KIT PREMIUM SUSPENSION');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','HERRAMINETA DE SUSPENSION');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('MECÁNICA','SUSPENSION DE AIRE 2');
+
+
+/*ELECTRONICA*/
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','LUCES LED DE LUJO PARA PERSIANA PARRILLA TIPO TOYOTA FORD');
 INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','LUCES LED DE LUJO PARA PERSIANA PARRILLA TIPO TOYOTA FORD');
 INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','KIT DE FAROS LED 9005 9006 PARA 2021 KIA SPORTAGE 40000LM');
 INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','EXPLORADORAS DE LED DRL DELANTERAS PARA TOYOTA 4RUNNER 2014-2024');
 INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','FAROLAS LED DRL TIPO XB PARA TOYOTA LAND CRUISER SERIES 70-71-76-77-78-79');
 INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','FAROLAS LED DRL TIPO DUBAI DELUXE PARA TOYOTA HILUX 2021-2024');
 INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','PESTAÑAS LED DRL DELANTERAS PARA TOYOTA LAND CRUISER LC300 2022-2024');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','MODULO DE ALARMA CHEVROLET O CHEVYSTAR ORIGINAL');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','DVR CON PANTALLA FULL HD 1080P DE 3 CAMARAS CON REVERSA PARA CARROS');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA','CONTROL ALARMA / ULTRA');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','ASIENTO CLÁSICO');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','ASIENTO MODERNO');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','ASIENTO ELEGANTE');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','ASIENTO COMFORT');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','SISTEMA DE AUDIO PREMIUM');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','SISTEMA DE AUDIO AVANZADO');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('INTERIOR','SISTEMA DE AUDIO DE ALTA FIDELIDAD');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('FLUIDOS','ACEITE ESTÁNDAR');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('FLUIDOS','ACEITE PREMIUM');
-INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('FLUIDOS','ACEITE SINTÉTICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'MODULO DE ALARMA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'CAMARA REVERSA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'CONTROL ALARMA ULTRA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'SENSORES DE REVERSA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'KIT SENSORES');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'SISTEMA START');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'KIT COMPLETO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'CÁMARA DE REVERSA DOMO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'SENSOR REVERSA CON CÁMARA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'BATERÍA MAC SILVER');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'BATERÍA CARO EXTREMA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'BATERÍA MAC GOLD');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'BATERIA 48 VARTA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'BATERIA MAC SILVER');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES('ELECTRÓNICA', 'BATERIA VARTA BLACK');
+
+
+
+
+/*FLUIDOS*/
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS','ACEITE ESTÁNDAR');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS','ACEITE PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS','ACEITE SINTÉTICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE FRENO ESTÁNDAR');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE FRENO PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE FRENO DE ALTO RENDIMIENTO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE FRENOS SINTÉTICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE FRENOS RACING');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE FRENOS PROFESIONAL');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE DIRECCIÓN ESTÁNDAR');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE DIRECCIÓN PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'ALTO RENDIMIENTO DIRECCIÓN');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE DIRECCIÓN SINTÉTICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DE DIRECCIÓN RACING');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'LÍQUIDO DIRECCIÓN PROFESIONAL');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'REFRIGERANTE ESTÁNDAR');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'REFRIGERANTE PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'REFRIGERANTE +RENDIMIENTO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'REFRIGERANTE SINTÉTICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'REFRIGERANTE DE LARGA DURACIÓN');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('FLUIDOS', 'REFRIGERANTE PROFESIONAL');
+
+/*PIEZAS*/
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'PIÑÓN PLANO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'KIT CLUTCH EMBRAGUE');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'KIT PLANETARIOS Y SATELITES');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'CAJA DE TRANSMISIÓN AUTOMÁTICA');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'ACDELCO GM ORIGINAL (AUTOMÁTICA)');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'INGKAN POLEA PRIMARIA DE TRANSMISIÓN');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('PIEZAS', 'Wilwood 140 - 11290-bk Delantero De Pinza Kit D52/big Gm');
+
+/*INTERIOR*/
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR','ASIENTO CLÁSICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR','ASIENTO MODERNO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR','ASIENTO ELEGANTE');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR','ASIENTO COMFORT');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'ASIENTO ERGONÓMICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'REJILLA DE AIRE ACONDICIONADO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'CALEFACCIÓN DE LUJO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'FILTRO DE AIRE ACONDICIONADO EFICIENTE');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'ACONDICIONAMIENTO PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'ACONDICIONAMIENTO MODERNO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'ACONDICIONAMIENTO TIPO II');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'ALTAVOZ DINÁMICO 0');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'AUDIO PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'SISTEMA AVANZADO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'AUDIO EFICIENTE');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'SISTEMA DE AUDIO SURROUND');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('INTERIOR', 'ALTAVOZ COAXIAL');
+
+/*NEUMATICOS*/
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'ALINEACION ESTANDAR');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'ALINEACIÓN PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'ALINEACION TOP');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'REPUESTO ESTÁNDAR');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'REPUESTO PREMIUM');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'REPUESTO ASDF');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'REPUESTO SINTÉTICO');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'LARGA DURACIÓN');
+INSERT INTO PRODUCTOS_POR_CATEGORIA VALUES ('NEUMATICOS', 'REPUESTO PROFESIONAL');
+
+
+
 
 /*POBLANDO COTIZACIONES*/
 

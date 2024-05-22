@@ -42,8 +42,6 @@ public class HomeController {
         return "/cotizacion/Agendamiento";
     }
 
-
-
     @GetMapping("/respuestaAgendamiento")
     public String respuestaAgendamiento() {
         return "/agendamiento/ventanaEmergente";
@@ -53,6 +51,9 @@ public class HomeController {
     public String cotizacion() {
         return "/lista/cotizacionFinal";
     }
+
+    @GetMapping("/productos")
+    public String productos(){return "Categorias";}
 
 
 
