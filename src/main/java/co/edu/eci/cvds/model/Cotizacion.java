@@ -144,6 +144,9 @@ public class Cotizacion {
         if(cliente == null
                 || (ciudadRecogida != null && direccionRecogida == null)
                 || (direccionRecogida != null && ciudadRecogida == null)) throw new LincolnLinesException(LincolnLinesException.DATOS_FALTANTES);
+        if(direccionRecogida != null &&
+                ((ciudadRecogida.isEmpty() && !direccionRecogida.isEmpty())
+                || (!ciudadRecogida.isEmpty() && direccionRecogida.isEmpty()))) throw new LincolnLinesException(LincolnLinesException.DATOS_FALTANTES);
         this.cita = cita;
         this.ciudadRecogida = ciudadRecogida;
         this.direccionRecogida = direccionRecogida;
