@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Agendamiento de Cita</title>
+    <link rel="stylesheet" href="/css/agendamiento.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font para Header -->
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="calendario" class="casilla">
+        <header>
+            <p id="fecha-actual"></p>
+            <div class="icons">
+                <span id="anterior" class="material-symbols-rounded">&lt;</span>
+                <span id="siguiente" class="material-symbols-rounded">&gt;</span>
+            </div>
+        </header>
+        <div class="contenido">
+            <ul class="semanas">
+                <li>Do</li>
+                <li>Lu</li>
+                <li>Ma</li>
+                <li>Mi</li>
+                <li>Ju</li>
+                <li>Vi</li>
+                <li>Sa</li>
+            </ul>
+            <ul class="dias"></ul>
+        </div>
+    </div>
+
+    <div id="informacion" class="casilla" >
+        <header>
+            <p>Información</p>
+        </header>
+        <div class="contenido">
+            <ul id="horas"></ul>
+            <button id="botonCotizar" onclick="formulario()">COTIZAR</button>
+            <form class="agendamiento" action="/paginaCotizaciones/registarAgendamiento" method="post" onsubmit="respuesta(event)">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" placeholder="Nombre" id="nombre" name="nombre" maxlength="50" required>
+                </div>
+
+                <div>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" placeholder="Apellido" id="apellido" name="apellido" maxlength="50" required>
+                </div>
+
+                <div>
+                    <label for="celular">Numero Celular</label>
+                    <input type="tel" pattern="[0-9]{10}" name="celular" placeholder="Numero Celular" maxlength="10" id="celular" required>
+                </div>
+
+                <div>
+                    <label for="correo">Correo Electronico</label>
+                    <input type="email" name="correo" placeholder="Correo" id="correo">
+                </div>
+
+                <div>
+                    <label for="ciudad">Ciudad de Recogida</label>
+                    <input type="text" name="ciudad" placeholder="Bogota" id="ciudad" value="Bogota">
+                </div>
+
+                <div>
+                    <label for="direccion">Direccion de Recogida</label>
+                    <input type="email" name="direccion" placeholder="Direccion de Recogida" id="direccion">
+                </div>
+
+
+                <input type="hidden" name="cotizacion" th:value="${cotizacion}" id="cotizacion">
+
+                <input type="hidden" name="dia" value="" id="dia">
+
+                <input type="hidden" name="mes" value="" id="mes">
+
+                <input type="hidden" name="ano" value="" id="ano">
+
+                <input type="hidden" name="hora" value="" id="hora">
+
+                <input type="submit" value="AGENDAR">
+            </form>
+        </div>
+    </div>
+
+    <dialog id="modal">
+        <h2 th:text="${mensajeRespuesta}"></h2>
+        <button id="Cerrar" onclick="cerrarModal()">Cerrar</button>
+    </dialog>
+
+<script src="/js/agendamiento.js"></script>
+</body>
+
+</html>
