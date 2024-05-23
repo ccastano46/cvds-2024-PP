@@ -1,63 +1,52 @@
 package co.edu.eci.cvds.controller;
-
-import co.edu.eci.cvds.exception.LincolnLinesException;
-import co.edu.eci.cvds.model.Cliente;
-import co.edu.eci.cvds.service.ClienteService;
+ 
+import co.edu.eci.cvds.model.Producto;
 import co.edu.eci.cvds.service.CotizacionService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
-
-
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+ 
+import java.util.List;
+ 
 @Controller
-@RequestMapping("/paginaCotizaciones")
+@RequestMapping(value = "/Lincoln")
 public class CotizacionController {
+ 
     private final CotizacionService cotizacionService;
-    private final ClienteService clienteService;
-
+ 
     @Autowired
-    public CotizacionController(CotizacionService cotizacionService, ClienteService clienteService) {
+    public CotizacionController(CotizacionService cotizacionService) {
         this.cotizacionService = cotizacionService;
-        this.clienteService = clienteService;
-
     }
+ 
+    /**
+     * Método que maneja las solicitudes GET para la ruta "/cotizacionFinal".
+     * Calcula los valores de subtotal, impuestos y total para una cotización específica
+     * y los agrega al modelo para su visualización en la vista "cotizacionFinal".
+     *
+     * @param model       Objeto Model de Spring para agregar atributos.
+     * @param cotizacionId Identificador de la cotización.
+     * @return La vista "cotizacionFinal" que mostrará los valores calculados y la lista de productos.
+     */
+    @GetMapping("/cotizacionFinal")
+    public String cotizacionFinal(Model model, @RequestParam(name = "cotizacionId") Long cotizacionId) {
 
-    @PostMapping("/registarAgendamiento")
-    public String agendar(@RequestParam("nombre") String nombre,
-                          @RequestParam("apellido") String apellido,
-                          @RequestParam("celular") String celular,
-                          @RequestParam("correo") String correo,
-                          @RequestParam("ciudad") String ciudad,
-                          @RequestParam("direccion") String direccion,
-                          @RequestParam("cotizacion") String cotizacion,
-                          @RequestParam("dia") String dia,
-                          @RequestParam("mes") String mes,
-                          @RequestParam("ano") String ano,
-                          @RequestParam("hora") LocalTime hora) {
-        int anoActual = Integer.parseInt(ano);
-        int mesActual = CotizacionService.identificarMes(mes);
-        int diaActual = Integer.parseInt(dia);
-        int horaActual = hora.getHour();
-        int minutoActual = hora.getMinute();
-        String mensaje;
-        Cliente cliente = new Cliente(nombre,apellido,celular,correo);
-        clienteService.agregarCliente(cliente);
-        try {
-            cotizacionService.agendarCita(LocalDateTime.of(anoActual,mesActual,diaActual,horaActual,minutoActual)
-                    ,ciudad,direccion,Integer.parseInt(cotizacion),cliente);
-            mensaje = "Felicidades " + nombre + " " +apellido + ", queremos informarle que su cita para el "
-                    + dia + "/" + mes + "/" + ano + " a las " + hora + " fue agendada exitosamente";
-        } catch (LincolnLinesException e) {
-            mensaje = e.getMessage();
-        }
-
-        return "redirect:/LincolnLines/agendamiento?cotizacion=" + cotizacion + "&respuesta=" + mensaje;
+            List<Producto> productos = cotizacionService.verCarrito(cotizacionId);
+            model.addAttribute("productos", productos);
+ 
+            float subtotal = cotizacionService.totalSinDescuento(cotizacionId);
+            float descuento = cotizacionService.calcularDescuentoTotal(cotizacionId); // Calcular descuento total
+            float impuestos = cotizacionService.calcularImpuestoTotal(cotizacionId);
+            float total = cotizacionService.calcularFinal(cotizacionId);
+ 
+            model.addAttribute("Subtotal", subtotal);
+            model.addAttribute("Descuento", descuento); // Agregar descuento total al modelo
+            model.addAttribute("Impuestos", impuestos);
+            model.addAttribute("Total", total);
+  
+        return "cotizacionFinal";
     }
-
 }

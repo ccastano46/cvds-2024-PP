@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
 
@@ -770,21 +769,6 @@ class SpringApplicationTests {
         }
         //Entrega faltante
         try{
-            cotizacionService.agendarCita(LocalDateTime.of(2050,12,31,10,30),"Bogota","",cotizacion.getIden(),cliente);
-            fail("No Lanzo Excepcion");
-        }catch (LincolnLinesException e){
-            assertEquals(LincolnLinesException.DATOS_FALTANTES,e.getMessage());
-        }
-
-        try{
-            cotizacionService.agendarCita(LocalDateTime.of(2050,12,31,10,30),"","Calle de prueba",cotizacion.getIden(),cliente);
-            fail("No Lanzo Excepcion");
-        }catch (LincolnLinesException e){
-            assertEquals(LincolnLinesException.DATOS_FALTANTES,e.getMessage());
-        }
-
-
-        try{
             cotizacionService.agendarCita(LocalDateTime.of(2050,12,31,10,30),"Bogota",null,cotizacion.getIden(),cliente);
             fail("No Lanzo Excepcion");
         }catch (LincolnLinesException e){
@@ -797,8 +781,6 @@ class SpringApplicationTests {
         }catch (LincolnLinesException e){
             assertEquals(LincolnLinesException.DATOS_FALTANTES,e.getMessage());
         }
-
-
         //Hora antes de las 8
         try{
             cotizacionService.agendarCita(LocalDateTime.of(2050,12,31,5,30),null,"Calle de prueba",cotizacion.getIden(),cliente);
@@ -1235,101 +1217,6 @@ class SpringApplicationTests {
         assertNotEquals("Esto es una prueba de descripcion breve",producto1.getDescripcionBreve());
         assertNotEquals("MXN",producto1.getMoneda());
         assertEquals(0.25f,producto1.getDescuento());
-    }
-
-    @Test
-    void shouldEntregarDisponibles(){
-        //Limpiar Tablas
-        categoriaService.limpiarTabla();
-        cotizacionService.limpiarTabla();
-        clienteService.limpiarTabla();
-        vehiculoService.limpiarTabla();
-        productoService.limpiarTabla();
-        //Codigo
-        categoriaService.agregarCategoria(new Categoria("Electronica"));
-        categoriaService.agregarCategoria(new Categoria("Mecanica"));
-        categoriaService.agregarCategoria(new Categoria("Sports"));
-        vehiculoService.agregarVehiculo(new Vehiculo("Volkswagen","Gol","2001"));
-
-        Producto producto;
-        Cliente cliente;
-
-        try {
-            producto = new Producto("Computador",700f,"USD");
-            producto.setImpuesto(0.13f);
-            productoService.agregarProducto(producto);
-            producto = new Producto("Casco",1000000f,"EUR");
-            producto.setDescuento(0.8f);
-            producto.setImpuesto(0.32f);
-            productoService.agregarProducto(producto);
-            productoService.agregarProducto(new Producto("celular",4800000f,"COP"));
-            categoriaService.agregarProducto("Electronica",productoService.buscarProductoPorNombre("Computador"));
-            categoriaService.agregarProducto("Electronica",productoService.buscarProductoPorNombre("CelUlar"));
-            categoriaService.agregarProducto("Mecanica",productoService.buscarProductoPorNombre("Casco"));
-            categoriaService.agregarProducto("Sports",productoService.buscarProductoPorNombre("Casco"));
-            vehiculoService.agregarProducto("volkswagen","gOL",productoService.buscarProductoPorNombre("Computador"));
-            vehiculoService.agregarProducto("volkswagen","gol",productoService.buscarProductoPorNombre("casco"));
-            Cotizacion cotizacion = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),null,cotizacion.getIden());
-            cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("computador"),vehiculoService.getVehiculo("volkswagen","gol"),cotizacion.getIden());
-            Cotizacion cotizacion2 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion3 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion4 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion5 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion9 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion6 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion7 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion8 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion10 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-            Cotizacion cotizacion11 = cotizacionService.agregarAlCarrito(productoService.buscarProductoPorNombre("casco"),vehiculoService.getVehiculo("volkswagen","gol"),-1);
-
-            clienteService.agregarCliente(new Cliente("Camilo", "Castaño Quintanilla", "3183074075",null));
-            cliente = clienteService.getCLiente("CamiLO","castaño Quintanilla");
-            //12 de D
-            cotizacionService.agendarCita(LocalDateTime.of(2040,12,31,8,0),null,null,cotizacion.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2040,12,31,10,0),"Bogota","Calle 156 #9-24",cotizacion2.getIden(),cliente);
-            //5 de octubre
-            cotizacionService.agendarCita(LocalDateTime.of(2040,10,5,8,30),null,null,cotizacion3.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2040,10,5,13,0),"Bogota","Calle 156 #9-24",cotizacion4.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2040,10,5,11,0),"Bogota","Calle 156 #9-24",cotizacion5.getIden(),cliente);
-            //2090
-            cotizacionService.agendarCita(LocalDateTime.of(2090,12,31,8,0),null,null,cotizacion6.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2090,12,31,10,0),"Bogota","Calle 156 #9-24",cotizacion7.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2090,12,31,12,0),null,null,cotizacion8.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2090,12,31,14,0),"Bogota","Calle 156 #9-24",cotizacion9.getIden(),cliente);
-
-            cotizacionService.agendarCita(LocalDateTime.of(2040,12,30,12,0),null,null,cotizacion10.getIden(),cliente);
-            cotizacionService.agendarCita(LocalDateTime.of(2040,12,30,14,0),"Bogota","Calle 156 #9-24",cotizacion11.getIden(),cliente);
-        } catch (LincolnLinesException e) {
-            fail(e.getMessage());
-        }
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(12,0)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(12,30)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(13,0)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(13,30)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(14,0)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(14,30)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(15,0)));
-        assertEquals(7,cotizacionService.horasDisponibles("2040","Diciembre","31").size());
-        assertFalse(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(LocalTime.of(15,30)));
-        assertFalse(cotizacionService.horasDisponibles("2040","Octubre","5").contains(LocalTime.of(10,30)));
-        assertFalse(cotizacionService.horasDisponibles("2040","Octubre","5").contains(LocalTime.of(8,0)));
-        assertFalse(cotizacionService.horasDisponibles("2040","Octubre","5").contains(LocalTime.of(13,0)));
-        assertFalse(cotizacionService.horasDisponibles("2040","Octubre","5").contains(LocalTime.of(12,30)));
-        assertTrue(cotizacionService.horasDisponibles("2040","Octubre","5").contains(LocalTime.of(15,0)));
-        assertEquals(1,cotizacionService.horasDisponibles("2040","Octubre","5").size());
-        assertTrue(cotizacionService.horasDisponibles("2090","Diciembre","31").isEmpty());
-        LocalTime contador = LocalTime.of(8,0);
-        while(contador.isBefore(LocalTime.of(12,0))){
-            assertFalse(cotizacionService.horasDisponibles("2040","Diciembre","31").contains(contador));
-            contador = contador.plusMinutes(30);
-        }
-
-
-
-
-
-
     }
 }
 

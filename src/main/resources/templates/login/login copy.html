@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Agrega tus enlaces a CSS y otros recursos aquí -->
+    <link rel="stylesheet" href="ruta/a/tu/estilo.css">
+    <!-- Agrega la librería de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos CSS personalizados */
+        .vh-100 {
+            display: flex;
+            justify-content: center; /* Centra horizontalmente los elementos */
+            align-items: center; /* Centra verticalmente los elementos */
+            /* Establece el color de fondo */
+            background-color: #0F0E0E; /* Color de fondo */
+            /* Establece la imagen de fondo */
+            background-size: 70%; /* Reducir tamaño de la imagen en un 70% */
+            background-position: top center; /* Ajusta la imagen al borde superior del contenedor */
+            background-repeat: no-repeat; /* Evita que la imagen se repita en mosaico */
+            height: 100vh;
+            margin: 0; /* Elimina márgenes para asegurar la ocupación completa */
+            position: relative; /* Permite posicionar la flecha con respecto al contenedor */
+        }
+
+        .arrow {
+            position: absolute; /* Posiciona la flecha de manera absoluta dentro del contenedor */
+            bottom: 20px; /* Distancia desde abajo */
+            left: 50%; /* Centra la flecha horizontalmente */
+            transform: translateX(-50%); /* Ajusta la posición horizontalmente */
+            width: 40px; /* Ancho de la flecha */
+            height: 40px; /* Alto de la flecha */
+            background-image: url('ruta/a/tu/flecha.png'); /* URL de la imagen de la flecha */
+            background-size: contain; /* Ajusta el tamaño de la imagen de la flecha */
+            cursor: pointer; /* Cambia el cursor al pasar sobre la flecha */
+        }
+
+        .form-container {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+            max-width: 600px; /* Ancho máximo del formulario */
+            width: 100%; /* Asegura que el formulario ocupe todo el ancho del contenedor */
+            background-color: rgba(41, 44, 51, 0.3); /* Fondo semi-transparente al 50% */
+            transform: scale(1.3);
+        }
+
+        /* Estilos para el formulario */
+        .form-outline {
+            margin-bottom: 1rem;
+        }
+
+        .form-check {
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+
+        /* Estilos para los labels dentro de los formularios */
+        .form-label {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #ffffff; /* Cambia el color del texto a blanco */
+        }
+
+        .btn-red {
+            background-color: #D91F28; /* Rojo */
+            border-color: #D91F28; /* Color de borde */
+            color: #FFFFFF; /* Color del texto en blanco */
+        }
+
+        .btn-red:hover,
+        .btn-red:focus {
+            background-color: #D91F28; /* Rojo más oscuro al pasar el mouse o enfocar */
+            border-color: #D91F28; /* Color de borde al pasar el mouse o enfocar */
+        }
+
+        .btn-red a {
+            color: #0F0E0E; /* Color del texto del enlace en negro */
+            text-decoration: none; /* Quita subrayado del enlace */
+        }
+
+        .btn-red a:hover {
+            text-decoration: underline; /* Subrayado al pasar el mouse sobre el enlace */
+        }
+
+        /* Estilos para el texto "Remember me" */
+        .form-check-label {
+            color: #FFFFFF; /* Color blanco para el texto */
+        }
+
+        /* Estilos para mostrar Logo4.png */
+        .show-logo {
+            background-image: url('static/Logo4.png') !important;
+            background-size: 50% auto !important; /* Reducir tamaño de la imagen en un 50% */
+            background-position: left bottom !important; /* Pegar la imagen a la esquina izquierda inferior */
+            position: absolute; /* Posiciona la imagen absolutamente */
+            bottom: 10px; /* Ajusta la posición verticalmente */
+            left: 10px; /* Ajusta la posición horizontalmente */
+            z-index: 999; /* Coloca la imagen al frente */
+            opacity: 0.5; /* Opacidad de la imagen */
+        }
+
+        /* Estilos para la imagen fija topgear.png */
+        .topgear-logo {
+            position: fixed; /* Posiciona la imagen de manera fija */
+            top: 20px; /* Distancia desde arriba */
+            left: 20px; /* Distancia desde la izquierda */
+            z-index: 9999; /* Coloca la imagen al frente de todo */
+            width: 100px; /* Ancho de la imagen */
+            height: auto; /* Altura automática */
+        }
+
+        body {
+            background-image: url('static/topgear.png');
+            background-attachment: fixed;
+            background-size: cover; /* Adjust the background size as needed */
+            background-position: center; /* Adjust the background position as needed */
+            margin: 0; /* Elimina márgenes predeterminados */
+            padding: 0; /* Elimina relleno predeterminado */
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .vh-100 {
+                background-size: 100%;
+            }
+            .topgear-logo {
+                display: none;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<main>
+    <div class="show-logo"></div>
+    <img src="ruta/a/tu/topgear.png" alt="Topgear Logo" class="topgear-logo">
+    <section class="vh-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="form-container">
+                        <!-- Flecha para rotar la imagen -->
+                        <div class="arrow" onclick="rotarImagen()"></div>
+                        <form action="" method="post">
+                            <div class="divider d-flex align-items-center my-4">
+                                <p class="text-center fw-bold mx-3 mb-0" style="color: #ffffff;">¡Preparando motores para la experiencia Topgear!</p>
+                                <!-- Cambié el color del texto a blanco con el estilo en línea -->
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label for="email" class="form-label">Correo</label>
+                                <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder=""/>
+                            </div>
+                            <div class="form-outline mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder=""/>
+                            </div>
+                            <ul style="color: D91F28;">
+                                <li th:each="err : ${errors}" th:text="${err}" class="error" />
+                            </ul>
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button type="submit" class="btn btn-red btn-lg">Entrar</button>
+                                <p class="small fw-bold mt-2 pt-1 mb-0"><a href="http://localhost:8080/login/register" class="btn btn-red">Registro</a></p>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer th:replace="fragments/general::empty-footer"></footer>
+
+<script>
+    var imagenes = ['static/Logo3.png', 'static/Logo4.png', 'static/Logo2.png'];
+    var indice = 0;
+
+    function cambiarImagenAutomaticamente() {
+        var elemento = document.querySelector('.vh-100');
+        elemento.style.backgroundImage = 'url(' + imagenes[indice] + ')';
+        indice = (indice + 1) % imagenes.length;
+    }
+
+    cambiarImagenAutomaticamente();
+    setInterval(cambiarImagenAutomaticamente, 7000); // Cambia cada 7 segundos (7000 milisegundos)
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopGear</title>
+    <!-- Agregar referencia a la biblioteca jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <!-- Agregar referencia a la biblioteca jsPDF AutoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+    <style type="text/css">
+    body {
+        background-color: #0F0E0E;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('/static/images/Car4.png'); /* Ruta relativa a la carpeta estática */
+        background-size: 50%; /* Tamaño 50% más pequeño */
+        background-position: center; /* Centrado */
+        background-repeat: no-repeat; /* No repetir */
+        overflow-x: auto; /* Agrega desplazamiento horizontal */
+    }
+        .watermark {
+            background-color: transparent; /* Hacemos el fondo transparente */
+            opacity: 0.9; /* Aplicamos opacidad al 90% */
+        }        
+        main {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .table-container {
+            flex: 1 1 65%; /* Flex para adaptar el ancho */
+            margin-bottom: 20px;
+            overflow-x: auto; /* Agrega desplazamiento horizontal */
+            margin-right: 80px; /* Agrega margen entre las tablas */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #FFFFFF;
+        }
+        th {
+            background-color: #FFCF28;
+            color: #0D131A;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #292C33;
+        }
+        tr:nth-child(odd) {
+            background-color: #0D131A;
+        }
+        .price {
+            text-decoration: line-through;
+        }
+        .price-new {
+            color: #D91F28;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        button {
+            background-color: #292C33; /* Color de fondo para los botones */
+            color: #FFFFFF; /* Color de texto para los botones */
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            max-width: 150px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        button img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .medium-image {
+            max-width: 50%; /* La imagen ocupará todo el ancho disponible */
+            height: auto; /* Mantenemos la proporción de la imagen */
+            display: block; /* Evita espacios en blanco debajo de la imagen */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+        img {
+            max-width: 100%; /* La imagen ocupará todo el ancho disponible */
+            height: auto; /* Mantenemos la proporción de la imagen */
+            display: block; /* Evita espacios en blanco debajo de la imagen */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+        #resumen-container {
+            flex: 1 1 25%; /* Flex para adaptar el ancho */
+            margin-left: auto;
+        }
+        .original-price {
+            text-decoration: line-through;
+        }
+        .discounted-price {
+            color: #D91F28;
+            font-weight: bold;
+        }
+        td img {
+            text-align: center;
+        }
+        @media print {
+            body {
+                background-image: url('/static/images/Car4.png'); /* Ruta relativa a la carpeta estática */
+                background-size: 50%; /* Tamaño 50% más pequeño */
+                background-position: center; /* Centrado */
+                background-repeat: no-repeat; /* No repetir */
+                -webkit-print-color-adjust: exact; /* Asegura que el fondo se imprima */
+                print-color-adjust: exact; /* Asegura que el fondo se imprima */
+            }
+            table { 
+                display: table !important;
+                width: 100%; /* Mantener el ancho al imprimir */
+            }
+            tr {
+                display: table-row !important;
+            }
+            td, th {
+                display: table-cell !important;
+            }
+            th:nth-child(1),
+            td:nth-child(1) {
+                display: none;
+            }
+            .table-container {
+                opacity: 0.9;
+            }
+        }
+
+        @media only screen and (max-width: 1023px) {
+            main {
+                flex-direction: column;
+            }
+            .table-container, #resumen-container {
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            main {
+                flex-direction: column; /* Cambia la dirección del flexbox a columna */
+            }
+            .table-container, #resumen-container {
+                width: 100%; /* Establece el ancho al 100% para ocupar todo el espacio disponible */
+            }
+            th {
+                text-align: center; /* Centra los títulos de columna en dispositivos móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="table-container watermark" id="productos-container">
+            <table id="productos">
+                <tr>
+                    <th style="font-weight: bold; font-size: 120%;">Artículo</th>
+                    <th style="font-weight: bold; font-size: 120%;">Nombre</th>
+                    <th style="font-weight: bold; font-size: 120%;">Descripción</th>
+                    <th style="font-weight: bold; font-size: 120%;">Cantidad</th>
+                    <th style="font-weight: bold; font-size: 120%;">Valor</th>
+                    <th style="font-weight: bold; font-size: 120%;">Impuesto</th>
+                </tr>
+                <!-- Iterar sobre la lista de productos -->
+                <tr th:each="producto : ${productos}">
+                    <td style="text-align: center;">
+                        <img th:src="@{'/static/' + ${producto.imagen}}" alt="Imagen" class="medium-image">
+                    </td>
+                    <td th:text="${producto.nombre}"></td>
+                    <td th:text="${producto.descripcionBreve}"></td>
+                    <td>
+                        <strong style="font-size: 110%;">
+                            <span th:if="${producto.descuento}" style="font-weight: bold;" th:text="'$' + ${#numbers.formatDecimal(producto.valor, 2, 'COMMA', 2, 'POINT')}" class="original-price"></span>
+                            <span th:unless="${producto.descuento}" th:text="'$' + ${#numbers.formatDecimal(producto.valor, 2, 'COMMA', 2, 'POINT')}"></span>
+                        </strong><br>
+                        <strong style="font-size: 110%;" class="discounted-price" th:if="${producto.descuento}">
+                            <span th:text="'$' + ${#numbers.formatDecimal(producto.valor - (producto.valor * producto.descuento), 2, 'COMMA', 2, 'POINT')}"></span>
+                        </strong>
+                    </td>                                 
+                    <td style="text-align: center;" th:text="${producto.moneda}"></td>
+                    <td style="text-align: center;" th:text="${#numbers.formatDecimal(producto.impuesto * 100, 1, 'COMMA', 1, 'POINT')} + '%'"></td>
+                </tr>
+            </table>
+        </div>
+        <!-- Segunda tabla: Resumen de compra -->
+        <div class="table-container watermark" id="resumen-container">
+            <table id="resumenCompra">
+                <tr style="font-size: 120%; font-weight: bold;">
+                    <th style="text-align: center;" colspan="2">Detalle</th>
+                </tr>                
+                <!-- Filas para subtotal, impuestos, descuento y total -->
+                <tr>
+                    <td style="font-weight: bold; font-size: 120%; text-align: center;">Subtotal</td>
+                    <!-- Utilizar el filtro number para formatear el número sin notación científica -->
+                    <td style="text-align: center; font-size: 120%;" th:text="'$ ' + ${#numbers.formatDecimal(Subtotal, 0, 'COMMA', 2, 'POINT')} + ' COP'"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; font-size: 120%; text-align: center;">Descuento</td>
+                    <!-- Utilizar el filtro number para formatear el número sin notación científica -->
+                    <td style="text-align: center; font-size: 120%;" th:text="'$ ' + ${#numbers.formatDecimal(Descuento, 0, 'COMMA', 2, 'POINT')} + ' COP'"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; font-size: 120%; text-align: center;">Impuestos</td>
+                    <!-- Utilizar el filtro number para formatear el número sin notación científica -->
+                    <td style="text-align: center; font-size: 120%;" th:text="'$ ' + ${#numbers.formatDecimal(Impuestos, 0, 'COMMA', 2, 'POINT')} + ' COP'"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; font-size: 120%; text-align: center;">Total</td>
+                    <!-- Utilizar el filtro number para formatear el número sin notación científica -->
+                    <td style="text-align: center; font-size: 120%;">
+                        <strong th:text="'$ ' + ${#numbers.formatDecimal(Total, 0, 'COMMA', 2, 'POINT')}"></strong>
+                        <strong style="font-weight: bold;">COP</strong>
+                    </td>                 
+                </tr>
+                <!-- Nueva fila para botones -->
+                <tr>
+                    <td colspan="2">
+                        <div class="container">
+                            <button onclick="window.open('https://wa.link/a76pci', '_blank')" style="margin-right: 30px;">
+                                <img src="/static/WA.png" alt="Whatsapp" style="width: 20px; height: 20px;"> 
+                            </button>
+                            <button onclick="window.print()" style="margin-right: 10px;">
+                                <img src="/static/Print.png" alt="Imprimir" style="width: 20px; height: 20px;"> 
+                            </button>
+                            <div class="text-center text-lg-start mt-4 pt-2">
+                                <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;"> 
+                                    <p>
+                                        <a th:href="@{/cotizacion/Agendamiento}" class="link-danger" style="text-decoration: none; color: inherit;">
+                                            <img src="/static/Calendar.png" alt="Agendamiento" style="width: 20px; height: 20px;"> 
+                                        </a>
+                                    </p>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

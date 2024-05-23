@@ -124,7 +124,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-
+    content: '';
     content: none;
 }
 
@@ -144,10 +144,6 @@ div {
     --colorGlobal: white;
     --colorCaja: #292C33;
     --inactivo:rgba( 255,207,40,0.4);
-    --tamanoFuente: 70px;
-    --bordeFuent: normal;
-    --stiloFuente: normal;
-    --seleccionBack :aquamarine;
 
 }
 
@@ -159,39 +155,9 @@ body{
     padding: var(--generalPadding);
 }
 
-
 body *{
     color: var(--colorGlobal);
 }
-
-h2{
-    font-family: "Goldman", sans-serif;
-    font-weight: var(--bordeFuent);
-    font-style: var(--stiloFuente);
-    font-size: 30px;
-}
-
-button{
-    --bordeFuent: bold;
-    font-family: "Goldman", sans-serif;
-    font-weight: var(--bordeFuent);
-    font-style: var(--stiloFuente);
-    border-color: black;
-    border-radius: 10%;
-    padding: 7px;
-    font-size: 15px;
-    color: white;
-    background: var(--headerBackground);
-    cursor: pointer;
-}
-
-#botonCotizar{
-    display: none;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
 
 .casilla{
     width: 50vw;
@@ -206,31 +172,11 @@ button{
     background: var(--headerBackground);
 }
 
-li.informacion{
-    width: fit-content;
-}
+
 
 .casilla .contenido{
     padding: var(--generalPadding);
 }
-
-.casilla .contenido li.informacion{
-    font-family: "Goldman", sans-serif;
-    font-weight: var(--bordeFuent);
-    font-style: var(--stiloFuente);
-    font-size: 30px;
-    text-align: center;
-    padding: 10px;
-
-}
-
-#horas li.informacion:hover{
-    background: var(--seleccionBack);
-    color: black;
-    cursor: pointer;
-    box-shadow: 7px 7px 6px;
-}
-
 
 .casilla header .icons{
     margin-left: 20px;
@@ -239,9 +185,9 @@ li.informacion{
 .casilla header p,
 .casilla header span{
     font-family: "Goldman", sans-serif;
-    font-weight: var(--bordeFuent);
-    font-style: var(--stiloFuente);
-    font-size: var(--tamanoFuente);
+    font-weight: normal;
+    font-style: normal;
+    font-size: 70px;
 }
 
 .casilla header .icons span{
@@ -257,9 +203,6 @@ li.informacion{
     color: var(--inactivo);
 }
 
-
-
-
 #anterior{
     margin-right: 25px;
 }
@@ -274,8 +217,8 @@ li.informacion{
 #calendario .contenido ul li{
     width: calc(100%/7);
     font-family: "Goldman", sans-serif;
-    font-weight: var(--bordeFuent);
-    font-style: var(--stiloFuente);
+    font-weight: normal;
+    font-style: normal;
     font-size: 38px;
     position: relative;
 }
@@ -284,19 +227,10 @@ li.informacion{
     margin-top: 20px;
     cursor: pointer;
     z-index: 1;
-}
 
-#calendario .contenido .dias li.inactivo{
-    cursor: default;
 }
-#calendario .contenido .dias li:hover,
-#calendario .contenido .dias li.activo,
-#horas li.activo{
+#calendario .contenido .dias li:hover{
     color: #0b0b0b;
-}
-
-#calendario .contenido .dias li.inactivo:hover{
-    color: var(--inactivo);
 }
 
 #calendario .contenido .dias li::before{
@@ -311,112 +245,13 @@ li.informacion{
     transform: translate(-50%, -50%);
 }
 
-#calendario .contenido .dias li:hover::before,
-#calendario .contenido .dias li.activo::before,
-#horas li.activo{
-    background: var(--seleccionBack);
-
+#calendario .contenido .dias li:hover::before{
+    background: aquamarine;
 }
-
-#horas li.activo{
-    box-shadow: 7px 7px 6px;
-}
-
-#calendario .contenido .dias li.inactivo:hover::before{
-    background: transparent;
-}
-
 
 #calendario header div.icons{
     position: absolute;
     right: 20px;
-}
-
-#informacion{
-    margin-left: 20px;
-}
-
-#horas{
-    display: grid;
-    grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
-    margin-bottom: 20px;
-    transition: 2s opacity ease-in,display 0s 0.5s;;
-}
-
-
-
-#informacion form.agendamiento{
-    display: none;
-}
-
-#informacion form.agendamiento div{
-    float: left;
-    width: 50%;
-    padding-right: 20px;
-}
-
-#informacion form.agendamiento div *{
-    display: block;
-    margin-bottom: 1em;
-    font-family: "Goldman", sans-serif;
-    font-weight: var(--bordeFuent);
-    font-style: var(--stiloFuente);
-    width: 100%;
-}
-
-#informacion form.agendamiento div label{
-    font-size: 20px;
-}
-#informacion form.agendamiento div input{
-    border-color: black;
-    color: #0D131A;
-    font-size: 15px;
-}
-
-
-#informacion form.agendamiento input[type="submit"]{
-    --bordeFuent: bold;
-    margin: 15px auto;
-    width: fit-content;
-    border-radius: 10%;
-    padding: 7px;
-    color: var(--colorGlobal);
-    background: var(--headerBackground);
-    cursor: pointer;
-    display: block;
-    float: none;
-    margin-bottom: 0;
-}
-
-#modal{
-    width: 40vw;
-    height: 40vh;
-    padding: var(--generalPadding);
-    background: #0D131A;
-}
-
-#modal *{
-    font-weight: normal;
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#modal h2{
-    margin-bottom: 20px;
-    line-height: 1.2em;
-}
-
-
-
-#modal button{
-    font-size: 30px;
-    border-radius: 0;
-}
-
-#modal::backdrop{
-    background-color: rgba(0,0,0,0.4);
 }
 
 
